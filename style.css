@@ -10,10 +10,18 @@ body {
 
 .round-img {
     width: 3em;
-    height: 3em;
+    height: 3em;    
     clip-path: circle(50% at 50% 50%);
 }
 
 .hidden {
     display: none
 }
+
+.fill-window {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }

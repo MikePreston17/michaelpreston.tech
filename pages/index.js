@@ -2,26 +2,6 @@ import EntryContextProvider from '../contexts/EntryContext'
 import PerfectScrollbar from "react-perfect-scrollbar"
 import Gallery from './Gallery'
 
-console.log(process.env.AIRTABLE_RESUME_BASE, process.env.AIRTABLE_API_KEY);
-
-const projects =
-    [
-        {
-            title: "Kiyap",
-            imgUrl: "",
-            url: "",
-            notes: "Connect with your martial arts friends and schools!",
-            emoji: ""
-        },
-        {
-            title: "PC-Builder",
-            imgUrl: "",
-            url: "",
-            notes: "Build a rig using our custom autobuilder!",
-            emoji: ""
-        },
-    ]
-
 const Index = () => {
 
     return (
@@ -38,6 +18,5 @@ const Index = () => {
         </EntryContextProvider>
     )
 }
-
 
 export default Index;

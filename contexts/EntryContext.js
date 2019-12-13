@@ -8,6 +8,7 @@ class EntryContextProvider extends Component {
     state = {
         entries: []
     }
+    
     componentDidMount() {
 
         if (!apiKey || !baseId)
