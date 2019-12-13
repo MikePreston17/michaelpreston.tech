@@ -4,6 +4,7 @@ const Index = () =>
         <br/>
         <br/>
         <i>I'm Michael Preston</i>
+        <p>Let's make code together... [object Object]</p>
     </div>
 
 export default Index;
