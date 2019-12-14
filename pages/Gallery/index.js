@@ -5,10 +5,9 @@ const Gallery = () =>
     (
         <EntryContext.Consumer>
             {(context) => {
-                const { entries } = context;
-                console.info(`Loaded ${entries.length} project entries!: `)
-
-                let sortedEntries = entries.sort((a, b) => a.fields.order - b.fields.order)
+                console.info(`Loaded ${context.length} project entries!: `)
+                const entries = Object.values(context);
+                let sortedEntries = entries.sort((a, b) => a.fields.order - b.fields.order) || [];
 
                 //TODO: cache entries to user's localstorage here.
                 return (

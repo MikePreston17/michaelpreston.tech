@@ -17,26 +17,20 @@ const styles = theme => ({
         width: "50 %",
         height: "50 %"
     },
-
-    // toolbar: {
-    //     color: "white",
-    //     backgroundColor: "#0079c1"
-    // },
-
+    toolbar: {
+        color: "white",
+        backgroundColor: "#0079c1"
+    },
     card: {
-        // "max-width": "700px",
-        // "height": "320px"
         //   margin: '40px'
         "align-content": 'center',
         "max-width": "170%",
         "max-height": "250%",
     },
-
     jumbo: {
         "max-width": "120%",
         backgroundColor: '#f20c4a',
     },
-
     navbar: {
         'color': '#111',
     }

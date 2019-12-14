@@ -1,38 +1,30 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 export const EntryContext = React.createContext()
 const apiKey = process.env.AIRTABLE_API_KEY;
 const baseId = process.env.AIRTABLE_RESUME_BASE;
 
-class EntryContextProvider extends Component {
-    state = {
-        entries: []
-    }
-    
-    componentDidMount() {
+const EntryContextProvider = (props) => {
 
-        if (!apiKey || !baseId)
-            console.warn('Invalid api keys, could not fetch any Airtable data');
+    const [entries, setState] = useState([])
+    const baseName = props.baseName || 'Projects'
+    const apiQuery = `https://api.airtable.com/v0/${baseId}/${baseName}?api_key=${apiKey}`;
 
-        const fetchData = () => {
-            axios
-                .get(`https://api.airtable.com/v0/${baseId}/Projects?api_key=${apiKey}`)
-                .then(({ data }) => {
-                    console.log('data retrieved?', data.records)
-                    this.setState({
-                        entries: data.records
-                    })
-                })
-                .catch(console.log)
-        }
-        fetchData();
+    const fetchData = async () => {
+        const call = await fetch(apiQuery);
+        const data = await call.json();
+
+        setState(data.records)
     }
-    render() {
-        return (
-            <EntryContext.Provider value={{ ...this.state }}>
-                {this.props.children}
-            </EntryContext.Provider>
-        )
-    }
+
+    if (!apiKey || !baseId)
+        console.warn('Invalid api keys, could not fetch any Airtable data');
+
+    useEffect(() => { fetchData(); }, []);
+
+    return (
+        <EntryContext.Provider value={{ ...entries }}>
+            {props.children}
+        </EntryContext.Provider>
+    )
 }
 export default EntryContextProvider

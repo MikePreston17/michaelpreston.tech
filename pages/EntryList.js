@@ -37,7 +37,6 @@ const EntryList = props => {
         let imgUrl = image[0].url;
 
         return (
-
             <a style={styles.body} href={url} key={id}>
                 <p hidden id={id}></p>
                 <div>
