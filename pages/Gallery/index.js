@@ -1,13 +1,13 @@
 import { EntryContext } from '../../contexts/EntryContext'
-import EntryList from '../EntryList'
+import EntryList from '../../components/EntryList'
 
 const Gallery = () =>
     (
         <EntryContext.Consumer>
             {(context) => {
                 console.info(`Loaded ${context.length} project entries!: `)
-                const entries = Object.values(context);
-                let sortedEntries = entries.sort((a, b) => a.fields.order - b.fields.order) || [];
+                const entries = Object.values(context)
+                let sortedEntries = entries.sort((a, b) => a.fields.order - b.fields.order) || []
 
                 //TODO: cache entries to user's localstorage here.
                 return (
@@ -20,4 +20,4 @@ const Gallery = () =>
         </EntryContext.Consumer>
     )
 
-export default Gallery;
+export default Gallery
