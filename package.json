@@ -12,20 +12,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
     "airtable": "^0.8.1",
+    "clipboard": "^2.0.6",
     "dotenv": "^8.2.0",
-    "next": "^9.1.5",
+    "next": "^9.4.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-perfect-scrollbar": "^1.5.3",
+    "reactstrap": "^8.4.1",
     "serve": "^11.2.0"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "next export",
+    "export": "npm run build && next export",
     "start": "serve ./out",
-    "deploy": "yarn build && netlify deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from "@material-ui/core/Button";
-import ClipboardJS from 'clipboard';
+// import ClipboardJS from 'clipboard';
 import classNames from 'classnames';
 
 const styles = theme => ({
@@ -67,8 +67,8 @@ const Contact = (props) => {
     )
 };
 
-// eslint-disable-next-line
-var clipboard = new ClipboardJS('.btn');
+
+// var clipboard = new ClipboardJS('.btn');
 // clipboard.destroy(); //TODO: Use in componentWillUnmount or destructor.
 
 export default withStyles(styles)(Contact);
