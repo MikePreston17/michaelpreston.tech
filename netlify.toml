@@ -1,3 +1,8 @@
 [build]
+<<<<<<< HEAD
     command = "yarn build && yarn export"
     publish = "out"
+=======
+  command = "yarn build && yarn export"
+  publish = "out"
+>>>>>>> f1f711848a31e0dcb61f2302501e2a899b661ed3

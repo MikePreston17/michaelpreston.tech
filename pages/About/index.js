@@ -1,45 +1,45 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core';
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import GridListTile from '@material-ui/core/GridListTile';
-import { Jumbotron } from 'reactstrap';
-import Recommendations from './recommendations';
+import React from 'react'
+import { withStyles } from '@material-ui/core'
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import GridListTile from '@material-ui/core/GridListTile'
+import { Jumbotron } from 'reactstrap'
+import Recommendations from './recommendations'
 
 const styles = theme => ({
     grid: {
         padding: theme.spacing(2),
-        margin: "auto",
-        position: "relative",
-        top: "25 %",
-        width: "50 %",
-        height: "50 %"
+        margin: 'auto',
+        position: 'relative',
+        top: '25 %',
+        width: '50 %',
+        height: '50 %'
     },
     toolbar: {
-        color: "white",
-        backgroundColor: "#0079c1"
+        color: 'white',
+        backgroundColor: '#0079c1'
     },
     card: {
         //   margin: '40px'
-        "align-content": 'center',
-        "max-width": "170%",
-        "max-height": "250%",
+        'align-content': 'center',
+        'max-width': '170%',
+        'max-height': '250%',
     },
     jumbo: {
-        "max-width": "120%",
+        'max-width': '120%',
         backgroundColor: '#f20c4a',
     },
     navbar: {
         'color': '#111',
     }
-});
+})
 
 const About = (props) => {
 
-    const { classes } = props;
-    const { card, jumbo } = classes;
+    const { classes } = props
+    const { card, jumbo } = classes
 
     return (
         <div className="alignLeft">
@@ -99,7 +99,7 @@ const About = (props) => {
 
             <Recommendations />
         </div>
-    );
+    )
 }
 
-export default withStyles(styles)(About);
+export default withStyles(styles)(About)
