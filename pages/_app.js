@@ -4,8 +4,6 @@ import Landing from './Landing'
 const App = () => {
     return (
         <>
-            <h1>I like cookies</h1>
-
             <Landing />
 
             <style jsx>{`            
