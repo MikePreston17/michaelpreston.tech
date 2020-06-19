@@ -1,11 +1,11 @@
 import React from 'react'
-import Landing from './Landing'
+import Layout from './layout';
+import Link from 'next/link'
 
 const App = () => {
     return (
-        <>
-            <Landing />
-
+        <div>
+            <Layout />
             <style jsx>{`            
             #logo {
                 margin-top: -180px;
@@ -70,7 +70,7 @@ const App = () => {
             
             `}
             </style>
-        </>
+        </div>
     )
 }
 

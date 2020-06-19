@@ -27,4 +27,5 @@ const EntryContextProvider = (props) => {
         </EntryContext.Provider>
     )
 }
+
 export default EntryContextProvider
