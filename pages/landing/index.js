@@ -1,12 +1,11 @@
 import React from 'react'
-import Link from '@material-ui/core'
+import { Link as ReactLink } from 'react-router-dom'
+import Link from 'next/link'
 const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 import { ZeitLinkButton, ButtonLink } from '../../components/ZeitLinkButton'
 import { Chip } from '@material-ui/core'
 
 const Landing = (props) => {
-
-    const title = "Title "
 
     return (
         <>
@@ -15,10 +14,30 @@ const Landing = (props) => {
                 <h1>
                     Full Stack Design <br></br> <span> PORTFOLIO</span>
                 </h1>
-                
+
+                <div className="button">
+                    <span className="btn1">
+                        <Link
+                            href="/projects"
+                        >
+                            <a>See Portfolio!</a>
+                        </Link>
+                    </span>
+                    {/* Use a special Nextjs link that can route externally */}
+                    {/* <ReactLink >
+                        <a href="https://www.linkedin.com/in/michael-n-preston/"
+                            className="btn2">Connect with me on LinkedIn!</a>
+                    </ReactLink> */}
+                </div>
             </section>
             <style jsx>
                 {`
+            span: {
+                fontSize: "65px",
+                "letter-spacing": "2px",
+                "font-family": "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+            }
+
             #logo {
                 margin-top: -180px;
                 position: absolute;
