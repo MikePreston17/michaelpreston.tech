@@ -1,3 +1,5 @@
+import React from 'react'
+
 const styles = {
     title: {
         fontWeight: "bold",
@@ -30,7 +32,7 @@ const EntryList = props => {
             "GitHub Repo": repoUrl = nothing,
             Description: notes = nothing,
             emoji = null,
-            Tech: tech
+            Tech: tech = []
         } = entry.fields;
 
         let id = key;

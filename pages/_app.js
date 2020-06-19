@@ -7,7 +7,6 @@ const CustomApp = (props) => {
     let { Component, pageProps } = props    
     return (
         <ProvideProjects>
-            <h1>Hello from _App!</h1>
             <Component {...pageProps} />
         </ProvideProjects>
     )

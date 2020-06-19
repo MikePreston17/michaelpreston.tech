@@ -5,26 +5,29 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Layout from './layout'
 
+import { StatusChip } from '@components'
+
+// const x  = X;
+// console.log('x :>> ', x);
+
 const App = () => {
   return (
-
-    <div title="TPOT Toolbox" className="container">      
+    <div title="TPOT Toolbox" className="container">
       <main>
-
-        <h1>Test header</h1>
-
-        <Layout />
+        <PerfectScrollbar>
+          {/* <StatusChip status="FEED ME" color="#c14af3" backgroundColor="cyan" /> */}
+          <Layout />
+        </PerfectScrollbar>
       </main>
     </div>
-
   )
 }
 
 export default App
 
-    // <EntryContextProvider>
+// <EntryContextProvider>
 
-    // <PerfectScrollbar>
-    // <Layout />
-    // </PerfectScrollbar>
-    // </EntryContextProvider>
+// <PerfectScrollbar>
+// <Layout />
+// </PerfectScrollbar>
+// </EntryContextProvider>
