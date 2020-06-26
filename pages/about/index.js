@@ -44,6 +44,8 @@ const About = (props) => {
 
     return (
         <div className="alignLeft">
+            
+
             <Jumbotron className={jumbo}>
                 <h2>Brand Statement</h2>
             </Jumbotron>

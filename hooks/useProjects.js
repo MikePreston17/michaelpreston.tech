@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState, useEffect } from 'react'
-export const EntryContext = React.createContext()
+
 const apiKey = process.env.AIRTABLE_API_KEY;
 const baseId = process.env.AIRTABLE_RESUME_BASE;
 
@@ -13,7 +13,7 @@ export function ProvideProjects({ children }) {
 }
 
 function useProjectsProvider() {
-    console.log('init provider()')
+    // console.log('init provider()')
     const [projects, setProjects] = useState([])
     const baseName = 'Projects'
     const apiQuery = `https://api.airtable.com/v0/${baseId}/${baseName}?api_key=${apiKey}`;

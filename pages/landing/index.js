@@ -1,33 +1,39 @@
 import React from 'react'
-import { Link as ReactLink } from 'react-router-dom'
 import Link from 'next/link'
 const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
-import { ZeitLinkButton, ButtonLink } from '../../components/ZeitLinkButton'
-import { Chip } from '@material-ui/core'
+// import { Router, Link as ReactLink } from 'react-router-dom'
+// import { ZeitLinkButton, ButtonLink } from '../../components/ZeitLinkButton'
+// import { Chip, Switch } from '@material-ui/core'
+// import * as Redirect from '@helpers/redirect'
+// import { ActiveLink } from '@components'
 
-const Landing = (props) => {
+const Landing = () => {
 
     return (
         <>
             <section className={'hero container'}>
-                <div id="logo">MICHAEL PRESTON</div>
+
+                <div id="#logo">MICHAEL PRESTON</div>
+
                 <h1>
                     Full Stack Design <br></br> <span> PORTFOLIO</span>
                 </h1>
 
                 <div className="button">
-                    <span className="btn1">
+                    <span className="btn1" title="Check out my Projects!">
                         <Link
                             href="/projects"
                         >
-                            <a>See Portfolio!</a>
+                            <a>Portfolio</a>
                         </Link>
                     </span>
-                    {/* Use a special Nextjs link that can route externally */}
-                    {/* <ReactLink >
-                        <a href="https://www.linkedin.com/in/michael-n-preston/"
-                            className="btn2">Connect with me on LinkedIn!</a>
-                    </ReactLink> */}
+
+                    <span className="btn2" title="Connect with me on LinkedIn!">
+                        <a href={linkedInUrl}
+                            target="blank">
+                            LinkedIn
+                        </a>
+                    </span>
                 </div>
             </section>
             <style jsx>

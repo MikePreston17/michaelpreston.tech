@@ -1,10 +1,10 @@
 import React from 'react'
-import App from 'next/app'
-import { ProvideProjects } from '../hooks/useProjects'
+import { ProvideProjects } from '@hooks'
 
-const CustomApp = (props) => {    
+const CustomApp = (props) => {
 
-    let { Component, pageProps } = props    
+    let { Component, pageProps } = props
+    // console.log('pageProps :>> ', pageProps);
     return (
         <ProvideProjects>
             <Component {...pageProps} />

@@ -4,7 +4,7 @@ import Chip from '@material-ui/core/Chip'
 export interface ChipProps {
     status: string,
     backgroundColor?: string,
-    color?: string
+    color?: string,
 }
 
 // TODO: support Enum reverse indexing and dev-driven typed statuses

@@ -1,4 +1,5 @@
-import { Typography, Icon, Link } from '@material-ui/core'
+import { Typography, Icon } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import classNames from 'classnames'
 import { FC } from 'react';
 
@@ -16,14 +17,14 @@ const StrongLink: FC<LinkProps> = ({
 
     return (
         <Typography component="li" key={index}>
-            {/* {icon && <Icon className={classNames(icon, iconStyle)} />}
+            {icon && <Icon className={classNames(icon, iconStyle)} />}
             <Link
-                component="a"
+                // component="a"
                 to="http://github.com"
             // to={route}
             >
                 {name}
-            </Link> */}
+            </Link>
         </Typography>)
 }
 

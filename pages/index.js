@@ -1,33 +1,25 @@
-import EntryContextProvider, { EntryContext } from '../contexts/EntryContext'
 import PerfectScrollbar from 'react-perfect-scrollbar'
-import Landing from './landing'
-import Link from 'next/link'
-import Head from 'next/head'
 import Layout from './layout'
-
-import { StatusChip } from '@components'
-
-// const x  = X;
-// console.log('x :>> ', x);
+import { Box, ThemeProvider, ColorModeProvider, Flex, CSSReset, theme } from '@chakra-ui/core'
+import customTheme from './theme'
 
 const App = () => {
   return (
-    <div title="TPOT Toolbox" className="container">
+    <div title="My Design Portfolio" className="container">
       <main>
-        <PerfectScrollbar>
-          {/* <StatusChip status="FEED ME" color="#c14af3" backgroundColor="cyan" /> */}
-          <Layout />
-        </PerfectScrollbar>
+        <ThemeProvider theme={customTheme}>
+          <ColorModeProvider>
+            <Flex direction='column' align='center' justify='center'>
+              <CSSReset />
+              <PerfectScrollbar>
+                <Layout />
+              </PerfectScrollbar>
+            </Flex>
+          </ColorModeProvider>
+        </ThemeProvider>
       </main>
     </div>
   )
 }
 
 export default App
-
-// <EntryContextProvider>
-
-// <PerfectScrollbar>
-// <Layout />
-// </PerfectScrollbar>
-// </EntryContextProvider>

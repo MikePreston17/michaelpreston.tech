@@ -1,4 +1,7 @@
 import React from 'react'
+import Project from '../models/Project';
+const scale = 24;
+const nothing = "No data found";
 
 const styles = {
     title: {
@@ -6,25 +9,23 @@ const styles = {
         fontSize: 18,
     },
     body: {
-        fontFamily: "Fira Code"
+        fontFamily: "Fira Code",
     },
-    imageBox: {        
-        width: "4em",
-        height: "4em",
+    imageBox: {
+        width: `${scale}em`,
+        height: `${scale}em`,
     },
     imageCircle: {
-        width: "4em",
-        height: "4em",
+        width: `${scale}em`,
+        height: `${scale}em`,
         clipPath: "circle(50% at 50% 50%)"
     }
 }
 
-const EntryList = props => {
-
-    const Entry = props.entries.map((entry, key) => {
-
-        const nothing = "No data found";
-
+const ProjectList = props => {
+    
+    const Record = props.entries.map((entry, key) => {
+        // console.log('entry.fields :>> ', entry.fields);
         let {
             Name: title = nothing,
             Media: image = nothing,
@@ -53,7 +54,7 @@ const EntryList = props => {
                     </div>
                     <div>
                         <span style={styles.title}>{title} </span>
-                        <span className="">
+                        <span className={title + "-span"}>
                             | {notes}
                         </span>
                     </div>
@@ -64,8 +65,8 @@ const EntryList = props => {
     })
 
     return (
-        <div>{Entry}</div>
+        <div>{Record}</div>
     )
 }
 
-export default EntryList;
+export default ProjectList;
