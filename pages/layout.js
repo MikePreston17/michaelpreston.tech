@@ -19,8 +19,11 @@ const Layout = () => {
                 <a>Home</a>
             </Link>
 
-            <Button>Sample chakra btn</Button>
-
+            {/* variant='solid' uses color. Similar to MUI's variant='contained' */}
+            <Box>Chakra Button with a built in theme variantColor = 'green'</Box>
+            <Button variantColor="green" variant="solid">Button</Button>
+            <Box>Chakra Button with a custom named variantColor = 'mybrandcolor'</Box>
+            <Button variantColor="mybrandcolor" variant="solid">Button</Button>
 
         </div>
     )

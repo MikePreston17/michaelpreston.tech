@@ -2,9 +2,7 @@ import { theme } from '@chakra-ui/core'
 
 const customTheme = {
     ...theme,
-
     breakpoints: ["30em", "48em", "62em", "80em"],
-
     fonts: {
         body: "system-ui, sans-serif",
         heading: "Georgia, serif",
@@ -22,8 +20,6 @@ const customTheme = {
         "5xl": "48px",
         "6xl": "64px",
     },
-
-
     // fonts: {
     //     heading: '"Avenir Next", sans-serif',
     //     body: "system-ui, sans-serif",
@@ -41,18 +37,26 @@ const customTheme = {
     //     "5xl": "3rem",
     //     "6xl": "4rem",
     // },
-    colors:
-    {
-        50: '#ffe4ff',
-        100: '#feb4f4',
-        200: '#fb85e8',
-        300: '#f754df',
-        400: '#f424d4',
-        500: '#db0bbb',
-        600: '#ab0592',
-        700: '#7a0169',
-        800: '#4b0040',
-        900: '#1d0019',
+    colors: {
+        ...theme.colors,
+        // Example of adding a new brand color. Used in props like variantColor, bg, etc.
+        mybrandcolor: {
+            50: "#ffe4ff",
+            100: "#feb4f4",
+            200: "#fb85e8",
+            300: "#f754df",
+            400: "#f424d4",
+            500: "#db0bbb",
+            600: "#ab0592",
+            700: "#7a0169",
+            800: "#4b0040",
+            900: "#1d0019",
+        },
+        // Example for if you wanted to override the built-in defaults for the color green
+        // green: {
+        //     ...theme.colors.green,
+        //     500: "#ff0099", // by default buttons use [colorName].500 as their main color. This would make green buttons hot pink...
+        // },
     },
     zIndices: {
         hide: -1,
@@ -69,9 +73,6 @@ const customTheme = {
         toast: 1700,
         tooltip: 1800,
     },
-
-
-
     fontWeights: {
         normal: 400,
         medium: 500,
