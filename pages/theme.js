@@ -40,18 +40,72 @@ const customTheme = {
     colors: {
         ...theme.colors,
         // Example of adding a new brand color. Used in props like variantColor, bg, etc.
-        mybrandcolor: {
-            50: "#ffe4ff",
-            100: "#feb4f4",
-            200: "#fb85e8",
-            300: "#f754df",
-            400: "#f424d4",
-            500: "#db0bbb",
-            600: "#ab0592",
-            700: "#7a0169",
-            800: "#4b0040",
-            900: "#1d0019",
+        kiyap: {
+            pink: {
+                50: "#ffe4ff",
+                100: "#feb4f4",
+                200: "#fb85e8",
+                300: "#f754df",
+                400: "#f424d4",
+                500: "#db0bbb",
+                600: "#ab0592",
+                700: "#7a0169",
+                800: "#4b0040",
+                900: "#1d0019",
+            },
+            sushi: {
+                
+            }
         },
+        upstack:
+        {
+            blue:
+            {
+                50: '#d8fbffe6',
+                100: '#abeaffe6',
+                200: '#7bdcffe6',
+                300: '#48ccffe6',
+                400: '#1abeffe6',
+                500: '#00a4e6e6',
+                600: '#0080b4e6',
+                700: '#005b82e6',
+                800: '#003851e6',
+                900: '#001421e6',
+            },
+            teal:
+            {
+                50: '#dbfefb',
+                100: '#b6f5ed',
+                200: '#8eede0',
+                300: '#65e4d3',
+                400: '#3ddcc7',
+                500: '#23c2ae',
+                600: '#149787',
+                700: '#056d60',
+                800: '#00423a',
+                900: '#001813',
+            },
+            orange: {
+                50: '#fff9dc',
+                100: '#fcecb1',
+                200: '#f8df83',
+                300: '#f6d254',
+                400: '#f3c526',
+                500: '#d9ab0c',
+                600: '#a98505',
+                700: '#795f02',
+                800: '#493900',
+                900: '#1b1300',
+            },
+            cream: {
+                500: '#F9FFeF'
+            },            
+        },
+
+        linkedIn: {
+            blue: '#0077B5'
+        }
+        
         // Example for if you wanted to override the built-in defaults for the color green
         // green: {
         //     ...theme.colors.green,

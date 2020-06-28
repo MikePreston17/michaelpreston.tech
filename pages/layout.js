@@ -1,31 +1,32 @@
-import { Box } from '@material-ui/core'
 import { ZeitCard, ZeitContainer } from '@components'
 import Routes from '@routes'
 import Link from 'next/link'
 import Landing from './landing'
 
-import { Button } from '@chakra-ui/core'
+import { Button, Box, Stack } from '@chakra-ui/core'
 
 const Layout = () => {
     return (
-        <div>
+        <Stack>
             <Landing />
-            <br />
-            <Link href="/about">
-                <a>About</a>
-            </Link>
-            <br />
-            <Link href="/landing">
-                <a>Home</a>
-            </Link>
 
             {/* variant='solid' uses color. Similar to MUI's variant='contained' */}
-            <Box>Chakra Button with a built in theme variantColor = 'green'</Box>
-            <Button variantColor="green" variant="solid">Button</Button>
-            <Box>Chakra Button with a custom named variantColor = 'mybrandcolor'</Box>
-            <Button variantColor="mybrandcolor" variant="solid">Button</Button>
-
-        </div>
+            <Box
+                bg="upstack.cream"
+                w="100%"
+            >
+                <Button variantColor="upstack.blue">
+                    <Link href="/about">
+                        <a>About</a>
+                    </Link>
+                </Button>
+                <Button variantColor="upstack.orange">
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                </Button>
+            </Box>
+        </Stack>
     )
 }
 

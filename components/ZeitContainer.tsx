@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { BasicProps } from './BasicProps'
-import { Box } from '@material-ui/core'
+import { Box } from '@chakra-ui/core'
 
 /* The Base required Props for a Zeit* UI component */
 export interface ZeitComponentProps extends BasicProps {

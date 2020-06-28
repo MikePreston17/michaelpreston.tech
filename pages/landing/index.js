@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { Box } from '@chakra-ui/core'
 const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 // import { Router, Link as ReactLink } from 'react-router-dom'
 // import { ZeitLinkButton, ButtonLink } from '../../components/ZeitLinkButton'
@@ -10,7 +11,8 @@ const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 const Landing = () => {
 
     return (
-        <>
+
+        <Box>
             <section className={'hero container'}>
 
                 <div id="#logo">MICHAEL PRESTON</div>
@@ -36,6 +38,7 @@ const Landing = () => {
                     </span>
                 </div>
             </section>
+
             <style jsx>
                 {`
             span: {
@@ -110,12 +113,18 @@ const Landing = () => {
             },
         `}
             </style>
-        </>
+
+
+        </Box>
+
     )
 }
 
 export default Landing
 
+
+
+{/* */ }
 
 {/* <Chip
                     className="button"
