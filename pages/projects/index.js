@@ -1,9 +1,9 @@
 import ProjectList from '../../components/EntryList'
-import { useProjects } from '../../hooks/useProjects'
+import { useAirtable } from '../../hooks/useAirtable'
 
 const Projects = () => {
 
-    let projects = useProjects();
+    let { projects } = useAirtable();
 
     console.info(`Loaded ${projects.length} project entries!: `)
     let sortedEntries = projects.sort((a, b) => a.fields.order - b.fields.order) || []

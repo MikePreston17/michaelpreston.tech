@@ -1,5 +1,3 @@
-import Project from './Project'
-
-export {
-    Project
-}
+export { Project } from './Project';
+export { Teammate } from './Teammate';
+export { About } from './About';

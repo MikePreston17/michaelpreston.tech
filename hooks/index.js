@@ -1,1 +1,1 @@
-export { useProjects, ProvideProjects } from './useProjects'
+export { useAirtable, ProvideAirtableApi as ProvideProjects } from './useAirtable'
