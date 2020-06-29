@@ -34,7 +34,7 @@
     "reactstrap": "^8.4.1"
   },
   "scripts": {
-    "deploy": "yarn build && netlify deploy",
+    "deploy": "yarn build && yarn export && netlify deploy",
     "dev": "next dev",
     "build": "next build",
     "export": "next export",

@@ -38,7 +38,6 @@ function useAirtableProvider() {
         const call = await fetch(readQuery('Teammates'));
         const data = await call.json();
         console.log('data.records.teammates :>> ', data.records);
-
         // const typed = data.records.map((r) => Object.assign(new Teammate, r.fields));
         // console.log('typed :>> ', typed);
         setTeammates(data.records)
@@ -48,8 +47,8 @@ function useAirtableProvider() {
         const call = await fetch(readQuery('About'));
         const data = await call.json();
         console.log('data.records.about :>> ', data.records);
-        const typed = data.records.map((r) => Object.assign(new About, r.fields));
-        console.log('typed :>> ', typed);
+        // const typed = data.records.map((r) => Object.assign(new About, r.fields));
+        // console.log('typed :>> ', typed);
         setAbout(data.records)
     }
 

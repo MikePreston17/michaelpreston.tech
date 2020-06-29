@@ -1,7 +1,7 @@
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import Layout from './layout'
 import { Box, ThemeProvider, ColorModeProvider, Flex, CSSReset, theme } from '@chakra-ui/core'
-import customTheme from './theme'
+import customTheme from '../constants/theme'
 
 const App = () => {
   return (

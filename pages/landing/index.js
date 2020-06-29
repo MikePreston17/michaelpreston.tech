@@ -1,34 +1,28 @@
 import React from 'react'
 import Link from 'next/link'
-import { Box } from '@chakra-ui/core'
+import { Box, Stack, Button } from '@chakra-ui/core'
 const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
-// import { Router, Link as ReactLink } from 'react-router-dom'
-// import { ZeitLinkButton, ButtonLink } from '../../components/ZeitLinkButton'
-// import { Chip, Switch } from '@material-ui/core'
-// import * as Redirect from '@helpers/redirect'
-// import { ActiveLink } from '@components'
+import Routes from '../../constants/routes'
 
 const Landing = () => {
 
     return (
 
-        <Box>
+        <Stack>
             <section className={'hero container'}>
 
-                <div id="#logo">MICHAEL PRESTON</div>
+                <Box id="#logo">MICHAEL PRESTON</Box>
 
                 <h1>
                     Full Stack Design <br></br> <span> PORTFOLIO</span>
                 </h1>
 
-                <div className="button">
-                    <span className="btn1" title="Check out my Projects!">
-                        <Link
-                            href="/projects"
-                        >
+                <Box className="button">
+                    <Button className="btn1" title="Check out my Projects!">
+                        <Link href={Routes.PROJECTS}>
                             <a>Portfolio</a>
                         </Link>
-                    </span>
+                    </Button>
 
                     <span className="btn2" title="Connect with me on LinkedIn!">
                         <a href={linkedInUrl}
@@ -36,7 +30,7 @@ const Landing = () => {
                             LinkedIn
                         </a>
                     </span>
-                </div>
+                </Box>
             </section>
 
             <style jsx>
@@ -113,10 +107,7 @@ const Landing = () => {
             },
         `}
             </style>
-
-
-        </Box>
-
+        </Stack>
     )
 }
 
