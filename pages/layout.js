@@ -3,32 +3,53 @@ import Routes from '@routes'
 import Link from 'next/link'
 import Landing from './landing'
 
-
 import { Button, Box, Stack } from '@chakra-ui/core'
+let scale = 40;
+let bounds = 18;
 
 const Layout = () => {
     return (
-        <Stack>
-            <SlantedNavbar />
+        <Box
+            alignItems="left"
+        >
             <Landing />
 
             {/* variant='solid' uses color. Similar to MUI's variant='contained' */}
             <Box
-                // bg="upstack.cream"
                 w="100%"
-            >
-                <Button variantColor="upstack.blue">
+                alignContent='center'
+                alignItems='center'
+            >                
+                <Button
+                    bg="upstack.blue.500"
+                    color='upstack.cream.500'
+                    leftIcon='info-outline'
+                >
                     <Link href="/about">
                         <a>About</a>
                     </Link>
                 </Button>
-                <Button variantColor="upstack.orange">
-                    <Link href="/">
-                        <a>Home</a>
+                <Button
+                    bg='upstack.teal.500'
+                    color='upstack.cream.500'
+                    leftIcon='email'
+                >
+                    <Link href={Routes.CONTACT}>
+                        <a>Contact</a>
                     </Link>
                 </Button>
+                <Button
+                    bg="upstack.orange.500"
+                    color='upstack.cream.500'
+                    leftIcon='info-outline'
+                >
+                    <Link href={Routes.SKILLS}>
+                        <a>Skills</a>
+                    </Link>
+                </Button>
+                
             </Box>
-        </Stack>
+        </Box>
     )
 }
 

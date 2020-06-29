@@ -8,11 +8,11 @@ body {
     height: 100%;
 }
 
-.round-img {
+/* .round-img {
     width: 3em;
     height: 3em;    
     clip-path: circle(50% at 50% 50%);
-}
+} */
 
 .hidden {
     display: none
@@ -24,11 +24,11 @@ body {
     left: 0;
     width: 100%;
     overflow: hidden;
-  }
+}
 
 
 
-#logo {
+/* #logo {
     margin-top: -180px;
     position: absolute;
     top: 0;
@@ -36,7 +36,7 @@ body {
     color: white;
     font-size: 120%;
     font-family: 'Monda';
-}
+} */
 
 .hero h1 {
     margin: 10px;

@@ -1,28 +1,29 @@
 import React from 'react'
 const scale = 24;
 const nothing = "No data found";
+import { Avatar } from '@chakra-ui/core'
 
-const styles = {
-    title: {
-        fontWeight: "bold",
-        fontSize: 18,
-    },
-    body: {
-        fontFamily: "Fira Code",
-    },
-    imageBox: {
-        width: `${scale}em`,
-        height: `${scale}em`,
-    },
-    imageCircle: {
-        width: `${scale}em`,
-        height: `${scale}em`,
-        clipPath: "circle(50% at 50% 50%)"
-    }
-}
+// const styles = {
+//     title: {
+//         fontWeight: "bold",
+//         fontSize: 18,
+//     },
+//     body: {
+//         fontFamily: "Fira Code",
+//     },
+//     imageBox: {
+//         width: `${scale}em`,
+//         height: `${scale}em`,
+//     },
+//     imageCircle: {
+//         width: `${scale}em`,
+//         height: `${scale}em`,
+//         clipPath: "circle(50% at 50% 50%)"
+//     }
+// }
 
 export const EntryList = props => {
-    
+
     const Record = props.entries.map((entry, key) => {
         // console.log('entry.fields :>> ', entry.fields);
         let {
@@ -39,28 +40,25 @@ export const EntryList = props => {
         let imgUrl = image[0].url;
 
         return (
-            <a style={styles.body} href={url} key={id}>
+            <a href={url} key={id}>
                 <p hidden id={id}></p>
                 <div>
                     <div
-                        className="cytol-auto px-3"
+                    // className="cytol-auto px-3"
                     >
-                        <img className="round-img"
-                            style={styles.imageCircle}
-                            src={imgUrl}
-                            alt={title}>
-                        </img>
+                        <ZeitAvatar image={imgUrl} title={title} scale={scale} ></ZeitAvatar>
+                        {/* <Avatar name={title} src={imgUrl}> </Avatar> */}
+                        {/* <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> */}
                     </div>
                     <div>
-                        <span style={styles.title}>{title} </span>
-                        <span className={title + "-span"}>
+                        {/* <span style={styles.title}>{title} </span> */}
+                        {/* <span className={title + "-span"}>
                             | {notes}
-                        </span>
+                        </span> */}
                     </div>
                 </div>
             </a>
         )
-
     })
 
     return (
@@ -68,4 +66,25 @@ export const EntryList = props => {
     )
 }
 
+
+
 export default EntryList;
+
+const ZeitAvatar = (image, title, scale = 8) => {
+    console.log('image :>> ', image);
+    return (
+        <div className="cytol-auto px-3">
+            <img
+                // style={styles.imageCircle}
+                src={image.image}
+                alt={title}>
+            </img>
+            <style jsx>{`    
+                width: "${scale}em",
+                height: "${scale}em",
+                clipPath: "circle(50% at 50% 50%)"
+            `}
+            </style>
+        </div>
+    );
+}

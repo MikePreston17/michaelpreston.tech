@@ -1,3 +1,2 @@
-export { Project } from './Project';
-export { Teammate } from './Teammate';
-export { About } from './About';
+export { Project, Teammate, Technology, About, Contact } from './Airtable';
+export { Model } from './model'

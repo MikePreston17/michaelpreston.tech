@@ -1,17 +1,9 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import Typography from "@material-ui/core/Typography";
 import Icon from '@material-ui/core/Icon';
 import classNames from 'classnames';
 import Link from 'next/link';
-
-const links = [
-    { route: '/', name: 'HOME', icon: 'fas fa-home' },
-    { route: '/projects', name: 'PORTFOLIO', icon: 'far fa-images' },
-    { route: '/contact', name: 'CONTACT', icon: 'fas fa-mobile-alt' },
-    { route: '/resume', name: 'RESUME', icon: 'fas fa-user-tie' },
-    { route: '/aboutme', name: 'ABOUT', icon: 'far fa-address-card' },
-]
+import { navButtons } from '../constants';
 
 export const SlantedNavbar = () => {
 
@@ -23,7 +15,7 @@ export const SlantedNavbar = () => {
                 </div>
                 <div className="navigation-menu">
                     <ul>
-                        {links.map(({ name, route, icon }, index) =>
+                        {navButtons.map(({ name, route, icon }, index) =>
                             <Typography component="li" key={index}>
                                 {icon && <Icon className={classNames(icon)} />}
                                 {/* <Link to={route}>{name}</Link> */}
