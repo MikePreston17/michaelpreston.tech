@@ -1,18 +1,20 @@
-import { ZeitCard, ZeitContainer } from '@components'
+import { ZeitCard, ZeitContainer, SlantedNavbar } from '@components'
 import Routes from '@routes'
 import Link from 'next/link'
 import Landing from './landing'
+
 
 import { Button, Box, Stack } from '@chakra-ui/core'
 
 const Layout = () => {
     return (
         <Stack>
+            <SlantedNavbar />
             <Landing />
 
             {/* variant='solid' uses color. Similar to MUI's variant='contained' */}
             <Box
-                bg="upstack.cream"
+                // bg="upstack.cream"
                 w="100%"
             >
                 <Button variantColor="upstack.blue">

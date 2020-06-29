@@ -11,7 +11,7 @@ type LinkProps = {
 }
 
 //https://github.com/mui-org/material-ui/issues/16846
-const StrongLink: FC<LinkProps> = ({
+export const StrongLink: FC<LinkProps> = ({
     index, icon, route, iconStyle
 }) => {
 

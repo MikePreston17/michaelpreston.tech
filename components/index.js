@@ -1,15 +1,7 @@
-import StrongLink from './StrongLink'
-import ZeitCard from './ZeitCard'
-import ZeitContainer from './ZeitContainer'
-import StatusChip, { Status } from './StatusChip'
-import ActiveLink from './ActiveLink'
-export { default as EntryList } from './EntryList'
-// import EntryList from './EntryList'
-
-export {
-    ActiveLink,
-    ZeitCard,
-    ZeitContainer,
-    // EntryList,
-    StatusChip,
-}
+export { StrongLink } from './StrongLink'
+export { ZeitCard } from './ZeitCard'
+export { ZeitContainer } from './ZeitContainer'
+export { StatusChip } from './StatusChip'
+export { ActiveLink } from './ActiveLink'
+export { EntryList } from './EntryList'
+export { SlantedNavbar } from './SlantedNavbar'

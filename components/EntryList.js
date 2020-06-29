@@ -1,5 +1,4 @@
 import React from 'react'
-import Project from '../models/Project';
 const scale = 24;
 const nothing = "No data found";
 
@@ -22,7 +21,7 @@ const styles = {
     }
 }
 
-const ProjectList = props => {
+export const EntryList = props => {
     
     const Record = props.entries.map((entry, key) => {
         // console.log('entry.fields :>> ', entry.fields);
@@ -69,4 +68,4 @@ const ProjectList = props => {
     )
 }
 
-export default ProjectList;
+export default EntryList;

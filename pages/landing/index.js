@@ -17,19 +17,19 @@ const Landing = () => {
                     Full Stack Design <br></br> <span> PORTFOLIO</span>
                 </h1>
 
-                <Box className="button">
-                    <Button className="btn1" title="Check out my Projects!">
+                <Box className="button-stack">
+                    <Box className="btn1" title="Check out my Projects!">
                         <Link href={Routes.PROJECTS}>
                             <a>Portfolio</a>
                         </Link>
-                    </Button>
+                    </Box>
 
-                    <span className="btn2" title="Connect with me on LinkedIn!">
+                    <Button className="btn2" title="Connect with me on LinkedIn!">
                         <a href={linkedInUrl}
                             target="blank">
                             LinkedIn
                         </a>
-                    </span>
+                    </Button>
                 </Box>
             </section>
 
@@ -66,7 +66,7 @@ const Landing = () => {
                 z-index: -50;
             }
 
-            .button {
+            .button-stack {
                 font-family: Tahoma;
                 font-weight: normal;
                 font-size: 12px;

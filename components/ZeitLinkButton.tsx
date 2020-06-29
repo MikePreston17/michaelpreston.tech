@@ -33,5 +33,3 @@ export const ZeitLinkButton = ({ onClick, className, href, hrefAs, children }) =
         href={href}>
         {children}
     </Button>)
-
-export default ZeitLinkButton

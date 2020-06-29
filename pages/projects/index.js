@@ -1,4 +1,4 @@
-import ProjectList from '../../components/EntryList'
+import EntryList from '../../components/EntryList'
 import { useAirtable } from '../../hooks/useAirtable'
 
 const Projects = () => {
@@ -11,7 +11,7 @@ const Projects = () => {
     return (
         <>
             <h3><u>Projects</u></h3>
-            <ProjectList entries={sortedEntries} />
+            <EntryList entries={sortedEntries} />
         </>
     )
 }

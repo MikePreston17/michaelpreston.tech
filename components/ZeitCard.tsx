@@ -7,7 +7,7 @@ interface ZeitCardProps extends BasicProps {
     text?: string;
 }
 
-const ZeitCard: FC<ZeitCardProps> = (
+export const ZeitCard: FC<ZeitCardProps> = (
     {
         url = null
         , title = ''
@@ -67,5 +67,3 @@ const ZeitCard: FC<ZeitCardProps> = (
             </>
     )
 }
-
-export default ZeitCard

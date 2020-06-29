@@ -12,7 +12,7 @@ export interface ChipProps {
 // }
 
 //{ status, color }
-const StatusChip: FC<ChipProps> = ({ status, color = '#fff', backgroundColor='#777' }) => {
+export const StatusChip: FC<ChipProps> = ({ status, color = '#fff', backgroundColor='#777' }) => {
 
     if (!status)
         throw Error('Status is a required value')

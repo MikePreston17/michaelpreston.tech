@@ -10,7 +10,7 @@ export interface ZeitComponentProps extends BasicProps {
     width: number;
 }
 
-const ZeitContainer: FC<ZeitComponentProps> = ({
+export const ZeitContainer: FC<ZeitComponentProps> = ({
     children
     , backgroundColor
     , color
@@ -26,5 +26,3 @@ const ZeitContainer: FC<ZeitComponentProps> = ({
         </Box>
     )
 }
-
-export default ZeitContainer
