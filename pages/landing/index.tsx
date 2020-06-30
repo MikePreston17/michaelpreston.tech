@@ -37,7 +37,8 @@ export const Landing = () => {
                         <Button
                             bg="kiyap.cream.200"
                             color="linkedIn.blue.500"
-                            className="btn2" title="Connect with me on LinkedIn!"
+                            // className="btn2"
+                            title="Connect with me on LinkedIn!"
                         >
                             <a href={linkedInUrl}
                                 target="blank">

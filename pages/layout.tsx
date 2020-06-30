@@ -1,25 +1,22 @@
-import { ZeitCard, ZeitContainer, SlantedNavbar } from '@components'
-import Routes from '@routes'
+// import { ZeitCard, ZeitContainer, SlantedNavbar } from '../components'
+import Routes from '../constants/routes'
 import Link from 'next/link'
 import Landing from './landing'
-
 import { Button, Box, Stack } from '@chakra-ui/core'
-let scale = 40;
-let bounds = 18;
+
 
 const Layout = () => {
     return (
-        <Box
-            alignItems="left"
+        <Stack
+            // alignItems="left"
         >
             <Landing />
-
             {/* variant='solid' uses color. Similar to MUI's variant='contained' */}
             <Box
                 w="100%"
-                alignContent='center'
-                alignItems='center'
-            >                
+                // alignContent='center'
+                // alignItems='center'
+            >
                 <Button
                     bg="upstack.blue.500"
                     color='upstack.cream.500'
@@ -32,7 +29,7 @@ const Layout = () => {
                 <Button
                     bg='upstack.teal.500'
                     color='upstack.cream.500'
-                    leftIcon='email'
+                    leftIcon='email'                    
                 >
                     <Link href={Routes.CONTACT}>
                         <a>Contact</a>
@@ -42,12 +39,13 @@ const Layout = () => {
                     bg="upstack.orange.500"
                     color='upstack.cream.500'
                     leftIcon='info-outline'
+                    onClick={() => console.info('Redirecting you!')}
                 >
                     <Link href={Routes.SKILLS}>
                         <a>Skills</a>
                     </Link>
                 </Button>
-                
+
             </Box>
         </Box>
     )

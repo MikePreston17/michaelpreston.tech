@@ -1,26 +1,7 @@
 import React from 'react'
 const scale = 24;
+import { Avatar, Box } from '@chakra-ui/core'
 const nothing = "No data found";
-import { Avatar } from '@chakra-ui/core'
-
-// const styles = {
-//     title: {
-//         fontWeight: "bold",
-//         fontSize: 18,
-//     },
-//     body: {
-//         fontFamily: "Fira Code",
-//     },
-//     imageBox: {
-//         width: `${scale}em`,
-//         height: `${scale}em`,
-//     },
-//     imageCircle: {
-//         width: `${scale}em`,
-//         height: `${scale}em`,
-//         clipPath: "circle(50% at 50% 50%)"
-//     }
-// }
 
 export const EntryList = props => {
 
@@ -42,21 +23,19 @@ export const EntryList = props => {
         return (
             <a href={url} key={id}>
                 <p hidden id={id}></p>
-                <div>
-                    <div
-                    // className="cytol-auto px-3"
-                    >
+                <Box>
+                    <Box>
                         <ZeitAvatar image={imgUrl} title={title} scale={scale} ></ZeitAvatar>
                         {/* <Avatar name={title} src={imgUrl}> </Avatar> */}
                         {/* <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> */}
-                    </div>
-                    <div>
-                        {/* <span style={styles.title}>{title} </span> */}
-                        {/* <span className={title + "-span"}>
+                    </Box>
+                    <Box>
+                        <span style={{}}>{title} </span>
+                        <span className={title + "-span"}>
                             | {notes}
-                        </span> */}
-                    </div>
-                </div>
+                        </span>
+                    </Box>
+                </Box>
             </a>
         )
     })
@@ -66,25 +45,26 @@ export const EntryList = props => {
     )
 }
 
-
-
 export default EntryList;
 
 const ZeitAvatar = (image, title, scale = 8) => {
-    console.log('image :>> ', image);
+    // console.log('image :>> ', image);
     return (
-        <div className="cytol-auto px-3">
+        <div>
             <img
                 // style={styles.imageCircle}
                 src={image.image}
                 alt={title}>
             </img>
-            <style jsx>{`    
+            <g>
+                idk
+            </g>
+            {/* <style jsx>{`    
                 width: "${scale}em",
                 height: "${scale}em",
                 clipPath: "circle(50% at 50% 50%)"
             `}
-            </style>
+            </style> */}
         </div>
     );
 }
