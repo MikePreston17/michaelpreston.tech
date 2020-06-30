@@ -47,7 +47,7 @@ const Layout = () => {
                 </Button>
 
             </Box>
-        </Box>
+        </Stack>
     )
 }
 
