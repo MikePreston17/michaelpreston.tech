@@ -15,7 +15,7 @@ export const useAirtable = () => useContext(airtableContext);
 
 export function ProvideAirtableApi({ children }) {
     const projects = useAirtableProvider();
-    return <airtableContext.Provider value={projects}> {children} </airtableContext.Provider>
+    return <airtableContext.Provider value={projects}>{children}</airtableContext.Provider>
 }
 
 const readQuery = (baseName = null) => `${apiUri}${baseId}/${baseName}?api_key=${apiKey}`;
@@ -57,7 +57,7 @@ function useAirtableProvider() {
         const data = await getTable('Technologies')
         let type = GenericFactory.create(Technology);
         let technologies = toDto<Technology>(data.records, type);
-        console.log('technologies :>> ', technologies);
+        console.log('technologies (useAirtable) :>> ', technologies);
         setTechnologies(technologies);
     }
 

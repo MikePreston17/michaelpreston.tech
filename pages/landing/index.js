@@ -9,10 +9,10 @@ import { AiOutlineLinkedin } from 'react-icons/ai'
 export const Landing = () => {
 
     return (
-        <div>
+        <div>landing
             {/* <Spinner color="upstack.blue.500" /> */}
             {/* <SlantedNavbar /> */}
-            <Stack>
+            {/* <Stack>
                 <section className={'hero container'}>
 
                     <Box id="#logo">MICHAEL PRESTON</Box>
@@ -113,7 +113,7 @@ export const Landing = () => {
                     },
                 `}
                 </style>
-            </Stack>
+            </Stack> */}
         </div>
     )
 }
