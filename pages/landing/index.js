@@ -1,18 +1,15 @@
 import React from 'react'
-import Link from 'next/link'
-import { Box, Stack, Button, Spinner } from '@chakra-ui/core'
+import { Link, Box, Stack, Button, Spinner } from '@chakra-ui/core'
 const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 import Routes from '../../constants/routes'
 import { AiOutlineLinkedin } from 'react-icons/ai'
-// import { SlantedNavbar } from '../../components'
 
 export const Landing = () => {
 
     return (
-        <div>landing
-            {/* <Spinner color="upstack.blue.500" /> */}
-            {/* <SlantedNavbar /> */}
-            {/* <Stack>
+        <Box>
+            <Spinner color="upstack.blue.500" />
+            <Stack>
                 <section className={'hero container'}>
 
                     <Box id="#logo">MICHAEL PRESTON</Box>
@@ -40,16 +37,20 @@ export const Landing = () => {
                             // className="btn2"
                             title="Connect with me on LinkedIn!"
                         >
-                            <a href={linkedInUrl}
+                            {/* <a href={linkedInUrl}
                                 target="blank">
                                 Connect on
-                            </a>
+                            </a> */}
+                            <Link href={linkedInUrl} isExternal>
+                                Connect
+                            </Link>
+
                             <AiOutlineLinkedin size={32} />
                         </Button>
                     </Box>
                 </section>
 
-                <style jsx>
+                {/* <style jsx>
                     {`
                     span: {
                         fontSize: "65px",
@@ -112,9 +113,11 @@ export const Landing = () => {
                         'font-family': 'Impact, Haettenschweiler, \'Arial Narrow Bold\', sans-serif',
                     },
                 `}
-                </style>
-            </Stack> */}
-        </div>
+                </style>            
+             */}
+
+            </Stack>
+        </Box>
     )
 }
 

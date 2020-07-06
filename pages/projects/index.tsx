@@ -12,17 +12,26 @@ const Projects = () => {
     let sortedEntries = projects.sort((a, b) => a.fields.order - b.fields.order) || []
 
     return (
-        <Stack>
-            <Heading><u>Projects</u></Heading>
+        <Stack
+            bg="kiyap.sushi.300"
+        >
+            <Heading color="kiyap.sushi.50"><u>Projects</u></Heading>
             <Box>
-                {/* <Button variantColor="green">Button1</Button> */}
+                {/* <Button
+                    color="upstack.blue.500"
+                    bg="upstack.blue.300"
+                >
+                    Button1
+                </Button> */}
 
-                <Link href={Routes.HOME}><a>Go Home</a></Link>
-                {!projects ? <Spinner color="upstack.teal.500" /> :
-                    <EntryList entries={sortedEntries} />}
-
+                <Link href={Routes.HOME}>
+                    <a>Go Home</a>
+                </Link>
+                
+                {!projects ?
+                    <Spinner color="upstack.teal.500" />
+                    : <EntryList entries={sortedEntries} />}
             </Box>
-
         </Stack>
     )
 }

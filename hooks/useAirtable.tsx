@@ -1,8 +1,9 @@
 import React, { useContext, createContext, useState, useEffect } from 'react'
 import { Teammate, About } from '../models';
 import Airtable from 'airtable'
-import { toDto, GenericFactory } from '../models/model';
+// import { toDto, GenericFactory } from '../models';
 import { Technology } from '../models/Airtable';
+import { createInstance, mapToDto } from '../models/domain';
 
 const apiKey = process.env.AIRTABLE_API_KEY;
 const baseId = process.env.AIRTABLE_RESUME_BASE;
@@ -31,7 +32,7 @@ function useAirtableProvider() {
         console.warn('Invalid api keys, could not fetch any Airtable data');
 
     const fetchProjects = async () => {
-        const call = await fetch(readQuery('Projects'));
+        const call = await fetch(readQuery('Projects'))
         const data = await call.json();
         console.log('data.records.projects :>> ', data.records);
         setProjects(data.records)
@@ -55,8 +56,8 @@ function useAirtableProvider() {
 
     const fetchTechnologies = async () => {
         const data = await getTable('Technologies')
-        let type = GenericFactory.create(Technology);
-        let technologies = toDto<Technology>(data.records, type);
+        let type = createInstance(Technology);
+        let technologies = mapToDto<Technology>(data.records, Technology);
         console.log('technologies (useAirtable) :>> ', technologies);
         setTechnologies(technologies);
     }
@@ -65,10 +66,14 @@ function useAirtableProvider() {
 
     // Initialize here
     useEffect(() => {
-        fetchProjects();
-        fetchTeammates();
-        fetchAbout();
-        fetchTechnologies();
+        fetchProjects()
+            .catch(console.info)
+        fetchTeammates()
+            .catch(console.info)
+        fetchAbout()
+            .catch(console.info)
+        fetchTechnologies()
+            .catch(console.info)
     }, []);
 
     // Pass back any results you want
