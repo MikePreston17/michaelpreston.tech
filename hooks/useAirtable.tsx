@@ -1,9 +1,7 @@
 import React, { useContext, createContext, useState, useEffect } from 'react'
-import { Teammate, About } from '../models';
+import { Teammate, Technology, About } from '../models';
 import Airtable from 'airtable'
-// import { toDto, GenericFactory } from '../models';
-import { Technology, Teammate } from '../models/Airtable';
-import { createInstance, mapToDto } from '../models/domain';
+import { createInstance, mapToDto } from '../models';
 
 const apiKey = process.env.AIRTABLE_API_KEY;
 const baseId = process.env.AIRTABLE_RESUME_BASE;
