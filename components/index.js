@@ -7,4 +7,7 @@ export { ZeitCard } from './ZeitCard'
 export { ZeitContainer } from './ZeitContainer'
 export { StatusChip } from './StatusChip'
 
-export { ProjectCard } from './chakra'
+export { ProjectCard } from './ProjectCard'
+export { ContactForm } from './ContactForm'
+export { AirbnbCard } from './AirbnbCard'
+export { Card } from './CardTemplates'

@@ -38,7 +38,7 @@ const recommendations = [
 
 ]
 
-const About = () => {
+export const About = () => {
 
     // TODO: useAirtable()
 

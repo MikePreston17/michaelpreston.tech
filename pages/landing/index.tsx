@@ -4,53 +4,59 @@ const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 import Routes from '../../constants/routes'
 import { AiOutlineLinkedin } from 'react-icons/ai'
 
+
+
 export const Landing = () => {
 
     return (
         <Box>
             <Spinner color="upstack.blue.500" />
             <Stack>
-                <section className={'hero container'}>
+                
 
-                    <Box id="#logo">MICHAEL PRESTON</Box>
 
-                    <h1>
-                        Full Stack Design <br></br> <span> PORTFOLIO</span>
-                    </h1>
+            </Stack>
+        </Box>
+    )
+}
 
-                    <Box className="button-stack">
-                        <Button
-                            leftIcon='add'
-                            bg="kiyap.sushi.500"
-                            color="kiyap.cream.500"
-                            // className="btn1"
-                            title="Check out my Projects!"
-                        >
-                            <Link href={Routes.PROJECTS}>
-                                <a>Portfolio</a>
+
+
+const OldHomepage = () => (
+    <section className={'hero container'}>
+
+        <Box id="#logo">MICHAEL PRESTON</Box>
+
+        <h1>
+            Full Stack Design <br></br> <span> PORTFOLIO</span>
+        </h1>
+
+        <Box className="button-stack">
+            <Button leftIcon='add' bg="kiyap.sushi.500" color="kiyap.cream.500" // className="btn1"
+                title="Check out my Projects!">
+                <Link href={Routes.PROJECTS}>
+                    {
+                        /* <a>Portfolio</a> */
+                    }
+                                Portfolio
                             </Link>
-                        </Button>
+            </Button>
 
-                        <Button
-                            bg="kiyap.cream.200"
-                            color="linkedIn.blue.500"
-                            // className="btn2"
-                            title="Connect with me on LinkedIn!"
-                        >
-                            {/* <a href={linkedInUrl}
-                                target="blank">
-                                Connect on
-                            </a> */}
-                            <Link href={linkedInUrl} isExternal>
-                                Connect
-                            </Link>
+            <Button bg="kiyap.cream.200" color="linkedIn.blue.500" // className="btn2"
+                title="Connect with me on LinkedIn!">
 
-                            <AiOutlineLinkedin size={32} />
-                        </Button>
-                    </Box>
-                </section>
+                <Link href={linkedInUrl} isExternal>
+                    Connect
+                </Link>
 
-                {/* <style jsx>
+                <AiOutlineLinkedin size={32} />
+            </Button>
+        </Box>
+    </section>
+);
+
+
+{/* <style jsx>
                     {`
                     span: {
                         fontSize: "65px",
@@ -116,9 +122,5 @@ export const Landing = () => {
                 </style>            
              */}
 
-            </Stack>
-        </Box>
-    )
-}
 
 export default Landing

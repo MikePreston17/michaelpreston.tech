@@ -2,7 +2,7 @@ import React, { useContext, createContext, useState, useEffect } from 'react'
 import { Teammate, About } from '../models';
 import Airtable from 'airtable'
 // import { toDto, GenericFactory } from '../models';
-import { Technology } from '../models/Airtable';
+import { Technology, Teammate } from '../models/Airtable';
 import { createInstance, mapToDto } from '../models/domain';
 
 const apiKey = process.env.AIRTABLE_API_KEY;
@@ -27,6 +27,7 @@ function useAirtableProvider() {
     const [teammates, setTeammates] = useState([]);
     const [about, setAbout] = useState([]);
     const [technologies, setTechnologies] = useState([]);
+    const [skills, setSkills] = useState([]);
 
     if (!apiKey || !baseId)
         console.warn('Invalid api keys, could not fetch any Airtable data');
@@ -34,35 +35,32 @@ function useAirtableProvider() {
     const fetchProjects = async () => {
         const call = await fetch(readQuery('Projects'))
         const data = await call.json();
-        console.log('data.records.projects :>> ', data.records);
-        setProjects(data.records)
+        setProjects(data.records.fields)
     }
 
     const fetchTeammates = async () => {
-        const call = await fetch(readQuery('Teammates'));
-        const data = await call.json();
-        console.log('data.records.teammates :>> ', data.records);
-        // const typed = data.records.map((r) => Object.assign(new Teammate, r.fields));
-        // console.log('typed :>> ', typed);
-        setTeammates(data.records)
+        const data = await getTable('Teammates')
+        setTeammates(mapToDto(data.records.fields, Teammate))
     }
 
     const fetchAbout = async () => {
-        const call = await fetch(readQuery('About'));
-        const data = await call.json();
-        console.log('data.records.about :>> ', data.records);
-        setAbout(data.records.map((r) => Object.assign(new About, r.fields)))
+        const data = await getTable('About')
+        setAbout(mapToDto(data.records.fields, About))
     }
 
     const fetchTechnologies = async () => {
         const data = await getTable('Technologies')
-        let type = createInstance(Technology);
-        let technologies = mapToDto<Technology>(data.records, Technology);
-        console.log('technologies (useAirtable) :>> ', technologies);
+        setTechnologies(mapToDto(data.records.fields, Technology));
+    }
+
+    const fetchSkills = async () => {
+        const data = await getTable('Skills')
+        let technologies = mapToDto(data.records.fields, Technology);
         setTechnologies(technologies);
     }
 
-    const getTable = async (tableName: string) => (await fetch(readQuery(tableName))).json();
+    const getTable = async (tableName: string) =>
+        (await fetch(readQuery(tableName))).json();
 
     // Initialize here
     useEffect(() => {
@@ -82,5 +80,6 @@ function useAirtableProvider() {
         teammates,
         about,
         technologies,
+        fetchSkills,
     }
 }

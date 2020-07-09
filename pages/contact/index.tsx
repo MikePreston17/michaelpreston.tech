@@ -2,34 +2,10 @@ import React from 'react';
 import { Tooltip, Button, Box, Stack, Heading, Text, Spinner, FormControl, Icon, FormLabel, Input, FormHelperText, RadioGroup, Radio } from '@chakra-ui/core'
 import Link from 'next/link'
 import { Routes } from '../../constants/routes';
-import ZeitLink from '../../components/ZeitLink';
-// import Icon from '@material-ui/core/Icon';
-// import ListItem from '@material-ui/core/ListItem';
+import { ContactForm } from '../../components'
 
-// import Tooltip from '@material-ui/core/Tooltip';
-// import Button from "@material-ui/core/Button";
-// import ClipboardJS from 'clipboard';
-// import classNames from 'classnames';
-// import { withStyles } from '@material-ui/core';
-
-// const styles = theme => ({
-//     header: {
-//         color: '#fff'
-//     },
-//     panel: {
-//         background: '#fff'
-//     },
-//     button: {
-//         border: '1px solid transparent',
-//         color: '#f20c4a',
-//         margin: '3px',
-//         background: 'paper',
-//         'box-shadow': '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)'
-//     },
-// })
-
-const email = `michael.n.preston@gmail.com`
-const phone = `(817) 565-2372`
+const myEmail = `michael.n.preston@gmail.com`
+const myPhone = `(817) 565-2372`
 
 export const Contact = () => {
 
@@ -40,34 +16,12 @@ export const Contact = () => {
             </Heading>
             <Box>
                 <Stack>
-                    <Text>Mobile: {phone}</Text>
-                    <Text>Email: {email}</Text>
 
-                    <ZeitLink
-                        url="https://www.thepathoftruth.com"
-                    />
-                    <Spinner color="upstack.orange.500" />
+                    <ContactForm />
 
-                    <FormControl>
-                        <FormLabel htmlFor="email">Email address</FormLabel>
-                        <Input type="email" id="email" aria-describedby="email-helper-text" />
-                        <FormHelperText id="email-helper-text">
-                            We'll never share your email.
-                    </FormHelperText>
-                    </FormControl>
+                    {/* <Text>Mobile: {phone}</Text>
+                    <Text>Email: {email}</Text> */}
 
-                    <FormControl as="fieldset">
-                        <FormLabel as="legend">What kinds of technologies are you looking for?</FormLabel>
-                        <RadioGroup defaultValue="">
-                            <Radio value="Sasuke">Sasuke</Radio>
-                            <Radio value="Nagato">Nagato</Radio>
-                            <Radio value="Itachi">Itachi</Radio>
-                            <Radio value="Sage of the six Paths">Sage of the six Paths</Radio>
-                        </RadioGroup>
-                        <FormHelperText id="email-helper-text">
-                            Select only
-                        </FormHelperText>
-                    </FormControl>
 
                     {/* <Tooltip title="Shoot me an Email!">
                         <Button href={'mailto:' + email}>
@@ -92,6 +46,7 @@ export const Contact = () => {
                             <Icon className="fas fa-download" />
                         </Button>
                     </Tooltip> */}
+                    
                     <Link href={Routes.HOME}><a>Go Home</a></Link>
                 </Stack>
             </Box>

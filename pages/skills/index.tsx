@@ -1,20 +1,34 @@
 
 import { FC } from 'react';
-import { Heading, Button, List, ListItem, Icon, Box, Stack } from '@chakra-ui/core';
+import { Heading, Text, Button, List, ListItem, Icon, Box, Stack } from '@chakra-ui/core';
 import Link from 'next/link'
 import { useAirtable } from '../../hooks/useAirtable';
+import { EntryList } from '../../components';
+import { Card } from '../../components/'
 
 const disclaimer = `All usage times are estimates and may or may not include professional experience, but will certainly include time I used researching and trying out technologies with proof-of-concept websites.  I consider all relevant experience as  experience and wish to work with those who are willing to take a chance on software developers who demonstrate their potential and willingness to learn.`
 
 export const Skills = () => {
     const { technologies } = useAirtable();
-    console.log('technologies (skills) :>> ', technologies);
+    console.log('technologies :>> ', technologies);
     return (
         <Stack alignItems='left'>
-            <Heading>My Skills</Heading>
-            {/* <Icon name='typescript' ></Icon> */}
+            <Heading size="lg">Tech I Use:</Heading>
+            
+            {/* TECH */}
+            {technologies.map((technology, key) => {
 
-            <Box 
+                return <Card>
+                    {{
+                        content: <Text>Test</Text>,
+                        media:   
+
+                    }}
+                </Card>
+
+            })}
+
+            <Box
                 alignContent='left'
                 justifyContent='left'
             >
