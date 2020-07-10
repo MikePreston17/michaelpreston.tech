@@ -1,2 +1,6 @@
 export { Card } from './CardTemplates';
-export { SlantedNavbar } from '../SlantedNavbar';
+export { EntryList } from './EntryList';
+export { SkillCard } from './SkillsCard';
+export { ProjectCard } from './ProjectCard';
+export { AirbnbCard } from './AirbnbCard';
+export { SlantedNavbar } from './SlantedNavbar';

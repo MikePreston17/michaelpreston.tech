@@ -29,10 +29,10 @@ export class Technology {
     "Last Used": Date
     "First Used": Date
     TimeUsed: number
-    Badge: any
+    Media: object
     Scope: string[]
     Experiences: string
-    "Self-Rating": string
+    "Self-Rating": number
 
     constructor(props) {
         // TODO: map the used dates to a friendly format with moment.
@@ -43,7 +43,9 @@ export class Technology {
 
 export class SoftSkill {
     Name: string
-
+    Notes: string
+    Rating: string
+    Enabled: boolean
 }
 
 

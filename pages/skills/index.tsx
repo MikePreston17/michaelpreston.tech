@@ -1,32 +1,25 @@
 
 import { FC } from 'react';
-import { Heading, Text, Button, List, ListItem, Icon, Box, Stack } from '@chakra-ui/core';
+import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex } from '@chakra-ui/core';
 import Link from 'next/link'
 import { useAirtable } from '../../hooks/useAirtable';
-import { EntryList } from '../../components';
-import { Card } from '../../components/'
+import { EntryList, Card } from '../../components';
+import { Technology } from '../../models/Airtable';
+import { SkillCard } from '@molecules';
 
 const disclaimer = `All usage times are estimates and may or may not include professional experience, but will certainly include time I used researching and trying out technologies with proof-of-concept websites.  I consider all relevant experience as  experience and wish to work with those who are willing to take a chance on software developers who demonstrate their potential and willingness to learn.`
+
+const nothing = "No data found";
 
 export const Skills = () => {
     const { technologies } = useAirtable();
     console.log('technologies :>> ', technologies);
+
     return (
-        <Stack alignItems='left'>
+        <Box 
+            p={5}
+        >
             <Heading size="lg">Tech I Use:</Heading>
-            
-            {/* TECH */}
-            {technologies.map((technology, key) => {
-
-                return <Card>
-                    {{
-                        content: <Text>Test</Text>,
-                        media:   
-
-                    }}
-                </Card>
-
-            })}
 
             <Box
                 alignContent='left'
@@ -34,6 +27,61 @@ export const Skills = () => {
             >
                 <i>{disclaimer}</i>
             </Box>
+
+            {/* TECH */}
+            <TechList entries={technologies} />
+
+            {/* Soft Skills */}
+
+
+        </Box>
+    )
+}
+
+type TechnologyProps = {
+    entries: Technology[]
+}
+
+export const TechList: FC<TechnologyProps> = ({ entries }) => {
+
+    const Records = entries.map((entry, key) => {
+        // console.log('entry.fields :>> ', entry.fields);
+
+        let {
+            Name: title = nothing,
+            Media: image = nothing,
+            Name,
+            Notes,
+            TimeUsed: duration,
+            "First Used": start,
+            "Last Used": end,
+            "Self-Rating": rating,
+            Experiences: description,
+        } = entry || {};
+
+        let imgUrl = image[0]?.url || '';
+
+        return (
+            <SkillCard
+                url={imgUrl}
+                title={title}
+                duration={duration}
+                description={description}
+                rating={rating}
+                end={end}
+                start={start}
+            />
+        )
+    })
+
+    return (
+        <Stack
+            direction="column-reverse"
+            // isInline
+            align="center"
+            spacing={8}
+        >
+            {Records}
         </Stack>
     )
 }

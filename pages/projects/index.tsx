@@ -47,9 +47,10 @@ sampleProjects = [
 
 export const Projects = () => {
     let { projects } = useAirtable();
-    projects = projects.length === 0
-        ? sampleProjects
-        : projects.sort((a, b) => a.fields.order - b.fields.order) || [];
+    
+    // let myProjects = projects.length === 0
+    //     ? sampleProjects
+    //     : projects.sort((a, b) => a.fields.order - b.fields.order) || [];
 
     console.info(`Loaded ${projects.length} project entries!: `)
 
@@ -61,11 +62,6 @@ export const Projects = () => {
                 bg="kiyap.sushi.300"
                 color="kiyap.sushi.50">Projects</Heading>
 
-            {/* {!projects
-                ? <Spinner color="kiyap.giraffe.500" />
-                : <Series entries={projects} />
-            } */}
-
             {!projects
                 ? <Spinner color="upstack.teal.500" />
                 : <EntryList entries={projects} />}
@@ -74,19 +70,19 @@ export const Projects = () => {
     )
 }
 
-type Props = {
-    entries: Project[]
-}
+// type Props = {
+//     entries: Project[]
+// }
 
-const Series: FC<Props> = ({ entries }) => {
+// const Series: FC<Props> = ({ entries }) => {
 
-    return (
-        <div>
-            {!!entries && entries.map((entry, key) =>
-                <ProjectCard key={key} project={entry} />)}
-        </div>
-    )
+//     return (
+//         <div>
+//             {!!entries && entries.map((entry, key) =>
+//                 <ProjectCard key={key} project={entry} />)}
+//         </div>
+//     )
 
-}
+// }
 
 export default Projects

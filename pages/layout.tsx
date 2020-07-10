@@ -8,8 +8,10 @@ import { Card } from '../components'
 
 const Layout = () => {
     return (
-        <Stack >
-            <Projects />
+        <Stack 
+            alignItems="center"
+        >
+            {/* <Projects /> */}
             <Skills />
             {/* <About /> */}
             {/* <Contact /> */}

@@ -28,8 +28,8 @@ export const Card: FC<Props> = (props) => {
         return (
             <Box className="card">
                 {header && <div className="card-header">{header}</div>}
-                {content && <div className="card-content">{content}</div>}
                 {media && <div className="card-media">{media}</div>}
+                {content && <div className="card-content">{content}</div>}
                 {actions && <div className="card-actions">{actions}</div>}
             </Box>
         )
