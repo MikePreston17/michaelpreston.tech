@@ -17,8 +17,11 @@ interface AirbnbCardProps {
 }
 
 export const AirbnbCard: FC<AirbnbCardProps> = ({
+    // Media:
     imageUri,
     badgeText,
+
+    // Content:
     subtitle1,
     subtitle2,
     description,

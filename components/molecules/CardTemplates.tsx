@@ -1,4 +1,5 @@
 import React, { FC, ReactNode, ReactChild } from 'react';
+import { Box } from '@chakra-ui/core';
 
 type Props = {
     children: ReactChild | ChildSlots
@@ -20,17 +21,17 @@ export const Card: FC<Props> = (props) => {
         throw new Error('Children are required for this component.')
 
     {/* Composing a card with children as slots (renders) */ }
-    
+
     if (areNamedSlots(children)) {
         const { header, content, media, actions } = children// || {}
 
         return (
-            <div className="card">
+            <Box className="card">
                 {header && <div className="card-header">{header}</div>}
                 {content && <div className="card-content">{content}</div>}
                 {media && <div className="card-media">{media}</div>}
                 {actions && <div className="card-actions">{actions}</div>}
-            </div>
+            </Box>
         )
     }
     else return <div className="card">{children}</div>

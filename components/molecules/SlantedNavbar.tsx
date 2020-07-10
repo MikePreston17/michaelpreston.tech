@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Icon from '@material-ui/core/Icon';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { navButtons } from '../constants';
+import { navButtons } from '@constants';
 
 export const SlantedNavbar = () => {
 
@@ -141,5 +141,4 @@ export const SlantedNavbar = () => {
     )
 }
 
-// export default withStyles(styles)(SlantedNavbar);
 export default SlantedNavbar;

@@ -18,7 +18,6 @@ type Props = {
 export const EntryList: FC<Props> = ({ entries }) => {
 
     const Records = entries.map((entry, key) => {
-        // console.log('entry.fields :>> ', entry.fields);
 
         let {
             Name: title = nothing,
@@ -28,17 +27,14 @@ export const EntryList: FC<Props> = ({ entries }) => {
             Description: notes = nothing,
             Tech: tech = []
             // emoji = null,
-        } = entry.fields || entry;
+        } = entry;
 
-        console.log(title)
-
-        let id = key;
         let imgUrl = image[0]?.url || 'No Link found';
 
         return (
             <Card
                 // margin="10 10 0 0"
-                key={id}>{{
+                key={key}>{{
 
                     header:
                         <Box bg="#fff">
@@ -63,8 +59,6 @@ export const EntryList: FC<Props> = ({ entries }) => {
         <div>{Records}</div>
     )
 }
-
-
 
 export default EntryList;
 

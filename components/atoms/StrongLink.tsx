@@ -2,7 +2,7 @@ import { Typography, Icon } from '@material-ui/core'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { FC } from 'react';
-import { BasicProps } from './BasicProps';
+import { BasicProps } from './molecules/BasicProps';
 
 interface StrongLinkProps extends BasicProps {
     index: number,
