@@ -1,11 +1,10 @@
-import EntryList from '../../components/EntryList'
 import { Routes } from '../../constants/routes';
 import { useAirtable } from '../../hooks/useAirtable'
 import { Stack, Heading, Spinner, Button, Box } from '@chakra-ui/core';
 import Link from 'next/link'
 import { Project } from '../../models';
 import { FC } from 'react';
-import { ProjectCard } from '../../components/ProjectCard';
+import { EntryList } from 'components/molecules';
 
 let sampleProjects: Project[];
 sampleProjects = [
@@ -47,7 +46,7 @@ sampleProjects = [
 
 export const Projects = () => {
     let { projects } = useAirtable();
-    
+
     // let myProjects = projects.length === 0
     //     ? sampleProjects
     //     : projects.sort((a, b) => a.fields.order - b.fields.order) || [];

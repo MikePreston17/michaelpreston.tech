@@ -1,5 +1,5 @@
 import { Card } from './CardTemplates'
-import { Technology, SoftSkill } from '@models';
+import { Technology, SoftSkill } from '../../models';
 import { FC } from 'react';
 import { Image, Flex, Text, Box, Stack, Badge } from '@chakra-ui/core';
 
@@ -51,6 +51,8 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                     <Box
                         borderWidth="3px"
                         mb={3}
+                        // shadow="1 1px 5px upstack.teal.700"
+                    // boxShadow: '1 1px 5px rgba(0,0,0,0.2)',
                     // border="2px upstack.teal.700 dashed"
                     >
                         <Text

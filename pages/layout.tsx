@@ -1,5 +1,5 @@
 // import { ZeitCard, ZeitContainer, SlantedNavbar } from '../components'
-import { Stack } from '@chakra-ui/core'
+import { Stack, Box, Flex } from '@chakra-ui/core'
 import { About } from './about'
 import { Skills } from './skills'
 import { Projects } from './projects'
@@ -8,14 +8,16 @@ import { Card } from '../components'
 
 const Layout = () => {
     return (
-        <Stack 
-            alignItems="center"
+        <Box   
+            // alignItems="center"
+            height="100%"
+            border="3px dodgerblue solid"
         >
-            {/* <Projects /> */}
+            <Projects />
             <Skills />
             {/* <About /> */}
             {/* <Contact /> */}
-        </Stack>
+        </Box>
     )
 }
 

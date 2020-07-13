@@ -26,12 +26,12 @@ export const Card: FC<Props> = (props) => {
         const { header, content, media, actions } = children// || {}
 
         return (
-            <Box className="card">
+            <div className="card">
                 {header && <div className="card-header">{header}</div>}
                 {media && <div className="card-media">{media}</div>}
                 {content && <div className="card-content">{content}</div>}
                 {actions && <div className="card-actions">{actions}</div>}
-            </Box>
+            </div>
         )
     }
     else return <div className="card">{children}</div>

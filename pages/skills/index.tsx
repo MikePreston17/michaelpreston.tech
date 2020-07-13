@@ -1,11 +1,11 @@
 
-import { FC } from 'react';
-import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex } from '@chakra-ui/core';
+import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid } from '@chakra-ui/core';
 import Link from 'next/link'
 import { useAirtable } from '../../hooks/useAirtable';
 import { EntryList, Card } from '../../components';
 import { Technology } from '../../models/Airtable';
-import { SkillCard } from '@molecules';
+import { SkillCard } from '../../components/molecules';
+import { FC } from 'react';
 
 const disclaimer = `All usage times are estimates and may or may not include professional experience, but will certainly include time I used researching and trying out technologies with proof-of-concept websites.  I consider all relevant experience as  experience and wish to work with those who are willing to take a chance on software developers who demonstrate their potential and willingness to learn.`
 
@@ -16,10 +16,12 @@ export const Skills = () => {
     console.log('technologies :>> ', technologies);
 
     return (
-        <Box 
+        <Box
             p={5}
+            height="100%"
+            border="3px lime dotted"
         >
-            <Heading size="lg">Tech I Use:</Heading>
+            <Heading size="lg">Technical Skills:</Heading>
 
             <Box
                 alignContent='left'
@@ -28,10 +30,10 @@ export const Skills = () => {
                 <i>{disclaimer}</i>
             </Box>
 
-            {/* TECH */}
+            <Heading size="md">Hard Skills</Heading>
             <TechList entries={technologies} />
 
-            {/* Soft Skills */}
+            {/* <Heading size="md">Soft Skills</Heading> */}
 
 
         </Box>
@@ -42,7 +44,7 @@ type TechnologyProps = {
     entries: Technology[]
 }
 
-export const TechList: FC<TechnologyProps> = ({ entries }) => {
+const TechList: FC<TechnologyProps> = ({ entries }) => {
 
     const Records = entries.map((entry, key) => {
         // console.log('entry.fields :>> ', entry.fields);
@@ -62,27 +64,44 @@ export const TechList: FC<TechnologyProps> = ({ entries }) => {
         let imgUrl = image[0]?.url || '';
 
         return (
-            <SkillCard
-                url={imgUrl}
-                title={title}
-                duration={duration}
-                description={description}
-                rating={rating}
-                end={end}
-                start={start}
-            />
+
+            <Box color="tomato"
+                boxShadow='0 3px 5px 2px rgba(255, 105, 135, .3)'
+                height="100%"
+                maxHeight="80px"
+            >
+                Potato
+            </Box>
+            // <SkillCard
+            //     key={key}
+            //     url={imgUrl}
+            //     title={title}
+            //     duration={duration}
+            //     description={description}
+            //     rating={rating}
+            //     end={end}
+            //     start={start}
+            // />
         )
     })
 
     return (
-        <Stack
-            direction="column-reverse"
-            // isInline
-            align="center"
-            spacing={8}
+        <SimpleGrid
+            // columns={2}
+            minChildWidth="360px"
+            spacing={1}
         >
             {Records}
-        </Stack>
+        </SimpleGrid>
+
+        // <Stack
+        //     direction="column-reverse"
+        //     // isInline
+        //     align="center"
+        //     spacing={8}
+        // >
+        //     {Records}
+        // </Stack>
     )
 }
 

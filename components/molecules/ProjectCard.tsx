@@ -2,7 +2,7 @@
 
 import { Box, Badge, Image, Link, Icon, Heading, Flex } from "@chakra-ui/core";
 import { FC } from 'react';
-import { Project } from "../models";
+import { Project } from "../../models";
 
 type Props = {
     project: Project

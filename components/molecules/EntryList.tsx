@@ -33,17 +33,15 @@ export const EntryList: FC<Props> = ({ entries }) => {
 
         return (
             <Card
-                // margin="10 10 0 0"
                 key={key}>{{
 
                     header:
                         <Box bg="#fff">
                             <Heading color="upstack.orange.400" size="md">{title}</Heading>
                         </Box>,
-                    // content: <p>{notes}</p>,
                     content:
                         <Flex align="baseline" mt={2}>
-                            <Badge variantColor="teal">{tech[0]}</Badge>
+                            {tech.map(techName => <Badge margin='2px' variantColor="teal">{techName}</Badge>)}
                         </Flex>,
                     media: <Image
                         width={"50em"}
