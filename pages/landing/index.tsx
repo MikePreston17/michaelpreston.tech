@@ -1,55 +1,62 @@
 import React from 'react'
-import Link from 'next/link'
-import { Box, Stack, Button, Spinner } from '@chakra-ui/core'
+import { Link, Box, Stack, Button, Spinner } from '@chakra-ui/core'
 const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 import Routes from '../../constants/routes'
 import { AiOutlineLinkedin } from 'react-icons/ai'
-// import { SlantedNavbar } from '../../components'
+
+
 
 export const Landing = () => {
 
     return (
-        <div>
-            {/* <Spinner color="upstack.blue.500" /> */}
-            {/* <SlantedNavbar /> */}
+        <Box>
+            <Spinner color="upstack.blue.500" />
             <Stack>
-                <section className={'hero container'}>
+                
 
-                    <Box id="#logo">MICHAEL PRESTON</Box>
 
-                    <h1>
-                        Full Stack Design <br></br> <span> PORTFOLIO</span>
-                    </h1>
+            </Stack>
+        </Box>
+    )
+}
 
-                    <Box className="button-stack">
-                        <Button
-                            leftIcon='add'
-                            bg="kiyap.sushi.500"
-                            color="kiyap.cream.500"
-                            // className="btn1"
-                            title="Check out my Projects!"
-                        >
-                            <Link href={Routes.PROJECTS}>
-                                <a>Portfolio</a>
+
+
+const OldHomepage = () => (
+    <section className={'hero container'}>
+
+        <Box id="#logo">MICHAEL PRESTON</Box>
+
+        <h1>
+            Full Stack Design <br></br> <span> PORTFOLIO</span>
+        </h1>
+
+        <Box className="button-stack">
+            <Button leftIcon='add' bg="kiyap.sushi.500" color="kiyap.cream.500" // className="btn1"
+                title="Check out my Projects!">
+                <Link href={Routes.PROJECTS}>
+                    {
+                        /* <a>Portfolio</a> */
+                    }
+                                Portfolio
                             </Link>
-                        </Button>
+            </Button>
 
-                        <Button
-                            bg="kiyap.cream.200"
-                            color="linkedIn.blue.500"
-                            // className="btn2"
-                            title="Connect with me on LinkedIn!"
-                        >
-                            <a href={linkedInUrl}
-                                target="blank">
-                                Connect on
-                            </a>
-                            <AiOutlineLinkedin size={32} />
-                        </Button>
-                    </Box>
-                </section>
+            <Button bg="kiyap.cream.200" color="linkedIn.blue.500" // className="btn2"
+                title="Connect with me on LinkedIn!">
 
-                <style jsx>
+                <Link href={linkedInUrl} isExternal>
+                    Connect
+                </Link>
+
+                <AiOutlineLinkedin size={32} />
+            </Button>
+        </Box>
+    </section>
+);
+
+
+{/* <style jsx>
                     {`
                     span: {
                         fontSize: "65px",
@@ -112,10 +119,8 @@ export const Landing = () => {
                         'font-family': 'Impact, Haettenschweiler, \'Arial Narrow Bold\', sans-serif',
                     },
                 `}
-                </style>
-            </Stack>
-        </div>
-    )
-}
+                </style>            
+             */}
+
 
 export default Landing

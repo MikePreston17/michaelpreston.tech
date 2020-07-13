@@ -1,119 +1,43 @@
 // import { ZeitCard, ZeitContainer, SlantedNavbar } from '../components'
-import Routes from '../constants/routes'
-import Link from 'next/link'
-import Landing from './landing'
-import { Button, Box, Stack } from '@chakra-ui/core'
-
+import { Stack, Box, Flex } from '@chakra-ui/core'
+import { About } from './about'
+import { Skills } from './skills'
+import { Projects } from './projects'
+import { Contact } from './contact'
+import { Card } from '../components'
 
 const Layout = () => {
     return (
-        <Stack
-            // alignItems="left"
+        <Box   
+            // alignItems="center"
+            height="100%"
+            border="3px dodgerblue solid"
         >
-            <Landing />
-            {/* variant='solid' uses color. Similar to MUI's variant='contained' */}
-            <Box
-                w="100%"
-                // alignContent='center'
-                // alignItems='center'
-            >
-                <Button
-                    bg="upstack.blue.500"
-                    color='upstack.cream.500'
-                    leftIcon='info-outline'
-                >
-                    <Link href="/about">
-                        <a>About</a>
-                    </Link>
-                </Button>
-                <Button
-                    bg='upstack.teal.500'
-                    color='upstack.cream.500'
-                    leftIcon='email'                    
-                >
-                    <Link href={Routes.CONTACT}>
-                        <a>Contact</a>
-                    </Link>
-                </Button>
-                <Button
-                    bg="upstack.orange.500"
-                    color='upstack.cream.500'
-                    leftIcon='info-outline'
-                    onClick={() => console.info('Redirecting you!')}
-                >
-                    <Link href={Routes.SKILLS}>
-                        <a>Skills</a>
-                    </Link>
-                </Button>
-
-            </Box>
+            <Projects />
+            <Skills />
+            {/* <About /> */}
+            {/* <Contact /> */}
         </Box>
     )
 }
 
-// <style jsx>{`            
-// #logo {
-//     margin-top: -180px;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     color: white;
-//     font-size: 120%;
-//     font-family: 'Monda';
-// }
+{/* Sample tech card: */ }
 
-// .hero h1 {
-//     margin: 10px;
-// }
+{/* <Card>
+    {{
+        header: "Woof!",
+        // media: <img src="https://thehappypuppysite.com/wp-content/uploads/2019/06/Mini-Shiba-Inu-HP-long.jpg" />,
+        content: (
+            <p>The Shiba Inu is the smallest of the six original ...</p>
+        ),
+        actions: (
+            <>
+                <button>Like</button>
+                <button>Share</button>
+            </>
+        ),
+    }}
+</Card> */}
 
-// .hero h1 {
-//     margin-top: 178px;
-//     text-transform: uppercase;
-//     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-//     font-size: 26px;
-//     letter-spacing: 4px;
-//     color: white;
-//     z-index: -50;
-// }
-
-// .button {
-//     font-family: Tahoma;
-//     font-weight: normal;
-//     font-size: 12px;
-//     margin-top: 40px;
-// }
-
-// .btn1:hover {
-//     text-decoration: none;
-//     color: white;
-// }
-
-// .btn2:hover {
-//     text-decoration: none;
-//     color: black;
-// }
-
-// .btn1 {
-//     padding: 12px 25px;
-//     background: #f20c4a;
-//     text-decoration: none;
-//     color: white;
-//     border-top-left-radius: 20px;
-//     border-bottom-left-radius: 20px;
-
-// }
-
-// .btn2 {
-//     padding: 12px 25px;
-//     background: #f4f6f8;
-//     text-decoration: none;
-//     color: #000;
-//     border-top-right-radius: 20px;
-//     border-bottom-right-radius: 20px;
-
-// }
-
-// `}
-// </style>
 
 export default Layout;

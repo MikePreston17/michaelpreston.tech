@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { ReactChild } from 'react'
 
 /** Base (Optional) properties for most React TSX Components */
 export interface BasicProps {
     text?: string;
-    children?: ReactNode;
+    children?: ReactChild;
 }
 

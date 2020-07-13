@@ -16,7 +16,11 @@
           "@constants": "./constants",
           "@helpers": "./helpers",
           "@contexts": "./contexts",
-          "@routes": "./constants/routes"
+          "@routes": "./constants/routes",
+          "@atoms": "./components/atoms",
+          "@molecules": "./components/molecules",
+          "@organisms": "./components/organisms",
+          "@templates": "./components/templates"
         }
       }
     ],

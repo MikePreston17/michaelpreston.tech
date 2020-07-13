@@ -16,11 +16,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "atoms": [
+        "components/atoms"
+      ]
+    }
   },
   "exclude": [
     "node_modules",
-    "**/*index.tsx"
+    // "**/*index.tsx"
   ],
   "include": [
     "next-env.d.ts",

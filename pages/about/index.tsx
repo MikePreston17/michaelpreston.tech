@@ -7,8 +7,7 @@ import {
 const sections = [
     {
         title: "Brand Statement",
-        p: [`Full Stack Web Developer with a background in .NET development.  I am known for my  ability to find solutions that lead to success, foster team cohesion, pursue excellence, and work with a high degree of integrity.  I enjoy helping fixing others' problems, big or small.  I felt a need to explore the tech world and keep up to date with the latest and greatest techniques, practices and ideas.  I sought out a bootcamp to both help prepare a professional portfolio and learn some front-end technologies that inspire.
-        I completed the bootcamp through Southern Methodist University where I expanded my knowledge in Javascript, ES6/7, MERN stack, and RESTful APIs.  I believe my tech skills combined with my ability to handle multiple projects and work well across organizations that make me a valuable asset to any team.`]
+        p: [`Full Stack Web Developer with a background in .NET development.  I am known for my  ability to find solutions that lead to success, foster team cohesion, and work with a high degree of integrity.  I enjoy helping fixing others' problems, big or small.  I felt a need to explore the tech world and keep up to date with the latest and greatest techniques, practices and ideas.  I sought out a extended learning to both help prepare a professional portfolio and learn some front-end technologies that inspire and expanded my knowledge in Javascript, ES6/7, MERN stack, and RESTful APIs.  I believe my tech skills, multitasking and patience work well across organizations and make me a valuable asset to any team.`]
     },
     {
         title: "Hobbies",
@@ -34,11 +33,9 @@ const recommendations = [
         quote: `"Michael is a highly motivated programmer and will go above and beyond to get the best possible project delivered. His input was invaluable and I learned quite a bit from his example. He would be a valuable asset to any team, and I would consider myself very lucky to be on the same team as him in the future." - Daniel Reynolds`,
         profile: `https://www.linkedin.com/in/daniel-s-reynolds`
     }
-
-
 ]
 
-const About = () => {
+export const About = () => {
 
     // TODO: useAirtable()
 
