@@ -41,7 +41,7 @@ export const EntryList: FC<Props> = ({ entries }) => {
                         </Box>,
                     content:
                         <Flex align="baseline" mt={2}>
-                            {tech.map(techName => <Badge margin='2px' variantColor="teal">{techName}</Badge>)}
+                            {tech.map((techName, key) => <Badge key={key} margin='2px' variantColor="teal">{techName}</Badge>)}
                         </Flex>,
                     media: <Image
                         width={"50em"}

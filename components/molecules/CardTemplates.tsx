@@ -2,10 +2,10 @@ import React, { FC, ReactNode, ReactChild } from 'react';
 import { Box } from '@chakra-ui/core';
 
 type Props = {
-    children: ReactChild | ChildSlots
+    children: ReactChild | CardSlots
 }
 
-type ChildSlots = {
+type CardSlots = {
     content: ReactNode
     header?: ReactNode
     actions?: ReactNode
@@ -23,7 +23,7 @@ export const Card: FC<Props> = (props) => {
     {/* Composing a card with children as slots (renders) */ }
 
     if (areNamedSlots(children)) {
-        const { header, content, media, actions } = children// || {}
+        const { header, content, media, actions } = children
 
         return (
             <div className="card">
@@ -38,6 +38,6 @@ export const Card: FC<Props> = (props) => {
 }
 
 const isObject = <T extends object>(value: any): value is T => typeof value === 'object' && typeof value !== 'function' && value != undefined
-const areNamedSlots = (children: any): children is ChildSlots => isObject(children) && 'content' in children
+const areNamedSlots = (children: any): children is CardSlots => isObject(children) && 'content' in children
 
 export default Card

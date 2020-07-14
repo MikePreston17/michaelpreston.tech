@@ -7,7 +7,7 @@ import {
 const sections = [
     {
         title: "Brand Statement",
-        p: [`Full Stack Web Developer with a background in .NET development.  I am known for my  ability to find solutions that lead to success, foster team cohesion, and work with a high degree of integrity.  I enjoy helping fixing others' problems, big or small.  I felt a need to explore the tech world and keep up to date with the latest and greatest techniques, practices and ideas.  I sought out a extended learning to both help prepare a professional portfolio and learn some front-end technologies that inspire and expanded my knowledge in Javascript, ES6/7, MERN stack, and RESTful APIs.  I believe my tech skills, multitasking and patience work well across organizations and make me a valuable asset to any team.`]
+        p: [`I'm a Full Stack Web Developer with a background in .NET development.  I am known for my  ability to find solutions that lead to success, foster team cohesion, and work with a high degree of integrity.  I enjoy helping fixing others' problems, big or small.  I felt a need to explore the tech world and keep up to date with the latest and greatest techniques, practices and ideas.  I sought out a extended learning to both help prepare a professional portfolio and learn some front-end technologies that inspire and expanded my knowledge in Javascript, ES6/7, MERN stack, and RESTful APIs.  I believe my tech skills, multitasking and patience work well across organizations and make me a valuable asset to any team.`]
     },
     {
         title: "Hobbies",
@@ -41,7 +41,7 @@ export const About = () => {
 
     return (
         <Stack>
-            <Heading>About Me</Heading>
+            <Heading fontFamily="Monda; Trebuchet MS">About Michael</Heading>
             <Accordion allowMultiple>
                 {sections.map((section, index) => {
                     return (

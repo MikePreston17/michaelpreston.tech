@@ -1,7 +1,7 @@
 import { Card } from './CardTemplates'
 import { Technology, SoftSkill } from '../../models';
 import { FC } from 'react';
-import { Image, Flex, Text, Box, Stack, Badge, Heading } from '@chakra-ui/core';
+import { Image, Flex, Text, Box, Stack, Badge, Heading, Icon } from '@chakra-ui/core';
 
 interface SkillCardProps {
     title: string,
@@ -15,7 +15,7 @@ interface SkillCardProps {
 
 const maxRating = 5;
 
-export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, description, end }) => {
+export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, description, start, end }) => {
 
     let years = Math.floor(duration);
     let months = (years < 1) ? duration * 12 : 0
@@ -62,10 +62,10 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                         alt={title}
                     />,
                     content:
-                        <Box
+                        <Stack
                             width="100%"
                             height="100%"
-                            mb={3}
+                            // mb={3}
                         // borderWidth="3px"
                         // shadow="1 1px 5px upstack.teal.700"
                         // boxShadow: '1 1px 5px rgba(0,0,0,0.2)',
@@ -73,27 +73,47 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                         >
                             <Text
                                 color="upstack.teal.700"
-                                mt={2}>
+                                mt={2}
+                                mb={8}
+                                >
                                 {description}
                             </Text>
 
-                            <Text mt={2}><b>Last Used: </b>{end}</Text>
 
+                            <Stack isInline justify="space-between">
+                                {/* <Text mt={2}><b>Last Used: </b>{end}</Text> */}
+
+                                <Text mt={2}><b>First Used: </b>{start}</Text>
+
+                                {/* <Text fontWeight="semibold">Rating {rating}/({maxRating})</Text> */}
+                                <Box as="span">{
+                                    Array(rating)
+                                        .fill('')
+                                        .map((_, index) => (
+                                            <Icon key={index} name='star' color='kiyap.sushi.300' />
+                                        ))
+                                }</Box>
+
+                            </Stack>
                             {
                                 (years >= 1) &&
                                 <Badge
+                                    height="100%"
+                                    width="100%"
                                     color="upstack.orange.800"
                                     bg="upstack.orange.300"
-                                >Years: {years}</Badge>}
+                                >Years: {years}+</Badge>}
                             {
                                 (years < 1) &&
                                 <Badge
+                                    height="100%"
+                                    width="100%"
                                     color="upstack.teal.700"
                                     bg="upstack.teal.500"
-                                >Months: {months.toPrecision(1)}</Badge>
+                                >Months: {months}</Badge>
                             }
-                            <Text fontWeight="bold">Rating {rating}/({maxRating})</Text>
-                        </Box>
+
+                        </Stack>
                 }}
                 </Card>
             </Box>

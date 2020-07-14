@@ -57,9 +57,11 @@ export const Projects = () => {
         <Stack
             alignItems="center"
         >
-            <Heading
+            {/* <Heading
                 bg="kiyap.sushi.300"
-                color="kiyap.sushi.50">Projects</Heading>
+                color="kiyap.sushi.50"
+                >
+                Projects</Heading> */}
 
             {!projects
                 ? <Spinner color="upstack.teal.500" />

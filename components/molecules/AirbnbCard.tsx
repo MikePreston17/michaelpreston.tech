@@ -1,7 +1,7 @@
 // AirbnbCard, generified.
 
 import React, { Component, FC } from 'react'
-import { Box, Flex, Badge, Text, Image } from '@chakra-ui/core';
+import { Box, Flex, Badge, Text, Image, Stack, Icon } from '@chakra-ui/core';
 
 // The sample Airbnb AirbnbCard props
 interface AirbnbCardProps {
@@ -58,13 +58,26 @@ export const AirbnbCard: FC<AirbnbCardProps> = ({
 
         {details && <Text mt={2}>{details}</Text>}
 
-        {(rating && maxRating || 5) && <Flex mt={2} align="center">
-            {/* <Box as={MdStar} color="orange.400" /> */}
-            {<Text
-                ml={1}
-                size="sm"
-            ><b>{rating}</b> (maxRating)</Text>}
-        </Flex>}
+        {(rating && maxRating || 5) &&
+
+            <Stack isInline justify="space-between">
+                <Box as="span">{
+                    Array(5)
+                        .fill('')
+                        .map((_, index) => (
+                            <Icon name='star' color='teal.500' />
+                        ))
+                }</Box>
+            </Stack>
+
+            // <Flex mt={2} align="center">
+            //     {/* <Box as={MdStar} color="orange.400" /> */}
+            //     {<Text
+            //         ml={1}
+            //         size="sm"
+            //     ><b>{rating}</b> (maxRating)</Text>}
+            // </Flex>
+        }
     </Box>);
 };
 

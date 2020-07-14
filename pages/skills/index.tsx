@@ -18,13 +18,9 @@ export const Skills = () => {
     return (
         <Box
             p={5}
-            border="3px lime dotted"
+            // border="3px lime dotted"
             // height="100%"
-        >
-            {/* <Heading
-                mb={4}
-                fontFamily="Monda"
-                size="2xl">Technical Skills:</Heading> */}
+        >            
             <Link color="upstack.blue.500"
                 mb={4}
             >
@@ -40,7 +36,7 @@ export const Skills = () => {
             <Heading
                 mb={4}
                 color="upstack.orange.600"
-                size="xl">Nerd Skills</Heading>
+                size="xl">Web Skills</Heading>
             <TechGrid entries={technologies} />
             {/* <Heading size="md">Soft Skills</Heading> */}
         </Box>
@@ -86,14 +82,12 @@ const TechGrid: FC<TechnologyProps> = ({ entries }) => {
 
     return (
         <SimpleGrid
-            // columns={2}
+            // columns={3}
             minChildWidth="360px"
-            spacing={20}
+            spacing={10}
         >
             {Records}
         </SimpleGrid>
-
-        
     )
 }
 
