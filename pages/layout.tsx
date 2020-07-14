@@ -12,11 +12,12 @@ const Layout = () => {
             // alignItems="center"
             height="100%"
             border="3px dodgerblue solid"
-        >
+        >          
+            
             <Projects />
             <Skills />
-            {/* <About /> */}
-            {/* <Contact /> */}
+            <About />
+            <Contact />
         </Box>
     )
 }

@@ -1,6 +1,6 @@
 
-import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid } from '@chakra-ui/core';
-import Link from 'next/link'
+import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid, Link } from '@chakra-ui/core';
+// import Link from 'next/link'
 import { useAirtable } from '../../hooks/useAirtable';
 import { EntryList, Card } from '../../components';
 import { Technology } from '../../models/Airtable';
@@ -18,24 +18,31 @@ export const Skills = () => {
     return (
         <Box
             p={5}
-            height="100%"
             border="3px lime dotted"
+            // height="100%"
         >
-            <Heading size="lg">Technical Skills:</Heading>
-
+            {/* <Heading
+                mb={4}
+                fontFamily="Monda"
+                size="2xl">Technical Skills:</Heading> */}
+            <Link color="upstack.blue.500"
+                mb={4}
+            >
+                <a href="https://iconscout.com/icons/airtable" target="_blank">Airtable Icon</a> by <a href="https://iconscout.com/contributors/icon-mafia" target="_blank">Icon Mafia</a>
+            </Link>
             <Box
                 alignContent='left'
                 justifyContent='left'
             >
-                <i>{disclaimer}</i>
+                <Text color="upstack.teal.700"><i>{disclaimer}</i></Text>
             </Box>
 
-            <Heading size="md">Hard Skills</Heading>
-            <TechList entries={technologies} />
-
+            <Heading
+                mb={4}
+                color="upstack.orange.600"
+                size="xl">Nerd Skills</Heading>
+            <TechGrid entries={technologies} />
             {/* <Heading size="md">Soft Skills</Heading> */}
-
-
         </Box>
     )
 }
@@ -44,7 +51,7 @@ type TechnologyProps = {
     entries: Technology[]
 }
 
-const TechList: FC<TechnologyProps> = ({ entries }) => {
+const TechGrid: FC<TechnologyProps> = ({ entries }) => {
 
     const Records = entries.map((entry, key) => {
         // console.log('entry.fields :>> ', entry.fields);
@@ -64,24 +71,16 @@ const TechList: FC<TechnologyProps> = ({ entries }) => {
         let imgUrl = image[0]?.url || '';
 
         return (
-
-            <Box color="tomato"
-                boxShadow='0 3px 5px 2px rgba(255, 105, 135, .3)'
-                height="100%"
-                maxHeight="80px"
-            >
-                Potato
-            </Box>
-            // <SkillCard
-            //     key={key}
-            //     url={imgUrl}
-            //     title={title}
-            //     duration={duration}
-            //     description={description}
-            //     rating={rating}
-            //     end={end}
-            //     start={start}
-            // />
+            <SkillCard
+                key={key}
+                url={imgUrl}
+                title={title}
+                duration={duration}
+                description={description}
+                rating={rating}
+                end={end}
+                start={start}
+            />
         )
     })
 
@@ -89,19 +88,12 @@ const TechList: FC<TechnologyProps> = ({ entries }) => {
         <SimpleGrid
             // columns={2}
             minChildWidth="360px"
-            spacing={1}
+            spacing={20}
         >
             {Records}
         </SimpleGrid>
 
-        // <Stack
-        //     direction="column-reverse"
-        //     // isInline
-        //     align="center"
-        //     spacing={8}
-        // >
-        //     {Records}
-        // </Stack>
+        
     )
 }
 
