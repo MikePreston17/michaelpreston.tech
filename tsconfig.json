@@ -21,6 +21,15 @@
     "paths": {
       "atoms": [
         "components/atoms"
+      ],
+      "molecules": [
+        "components/molecules"
+      ],
+      "template": [
+        "components/templates"
+      ],
+      "organisms": [
+        "components/organisms"
       ]
     }
   },

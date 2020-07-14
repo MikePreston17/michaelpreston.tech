@@ -7,7 +7,7 @@ import { Contact } from './contact'
 import { Link as Jump, animateScroll as scroll } from 'react-scroll'
 import { ReactChild } from 'react'
 import { ReactNode } from 'react';
-import { Section } from './Section'
+import { Section } from '../components/molecules/Section'
 
 const Layout = () => {
     return (
