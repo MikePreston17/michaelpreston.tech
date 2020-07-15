@@ -43,18 +43,21 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                 height="100%"
                 width="100%"
                 borderRadius="25px"
-                // boxShadow="0 1px 10px 2px #886be1"
-                boxShadow="0 3px 15px 5px rgba(35,194,174,0.50)"
                 bg="upstack.cream.500"
                 verticalAlign="center"
+                boxShadow="0 3px 15px 5px rgba(35,194,174,0.50)"
+            // boxShadow="0 1px 10px 2px #886be1"
             >
                 <Card>{{
                     header:
-                        <Box
-                            // width="100%"
-                            bg="upstack.cream.500">
-                            <Heading color="upstack.orange.400" size="md">{title}</Heading>
-                        </Box>,
+                        // <Box
+                        //     // width="100%"
+                        //     // bg="upstack.cream.500"
+                        //     >
+                        <Stack width="100%" align="center" spacing={3} px={16} >
+                            <Heading color="upstack.orange.600" size="lg">{title}</Heading>
+                        </Stack>,
+                    // </Box>,
                     media: <Image
                         maxWidth="5em"
                         rounded="md"
@@ -65,7 +68,7 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                         <Stack
                             width="100%"
                             height="100%"
-                            // mb={3}
+                        // mb={3}
                         // borderWidth="3px"
                         // shadow="1 1px 5px upstack.teal.700"
                         // boxShadow: '1 1px 5px rgba(0,0,0,0.2)',
@@ -75,7 +78,7 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                                 color="upstack.teal.700"
                                 mt={2}
                                 mb={8}
-                                >
+                            >
                                 {description}
                             </Text>
 
@@ -86,31 +89,48 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                                 <Text mt={2}><b>First Used: </b>{start}</Text>
 
                                 {/* <Text fontWeight="semibold">Rating {rating}/({maxRating})</Text> */}
-                                <Box as="span">{
-                                    Array(rating)
+
+                                <Stack as="span" direction="row">
+                                    <div>
+                                        {Array(rating)
+                                            .fill('')
+                                            .map((_, index) => (
+                                                <Icon key={index} name='star' color='kiyap.sushi.300' />
+                                            ))
+
+                                        }
+
+                                    </div>
+                                    <div>{Array(maxRating - rating)
                                         .fill('')
                                         .map((_, index) => (
-                                            <Icon key={index} name='star' color='kiyap.sushi.300' />
-                                        ))
-                                }</Box>
+                                            <Icon key={index} name='star' color='dark.600' />
+                                        ))}</div>
+                                </Stack>
 
+
+                                {
+                                    (years >= 1) &&
+                                    <Badge
+                                        height="100%"
+                                        color="upstack.orange.800"
+                                        bg="upstack.orange.300"
+                                    >Years: {years}+</Badge>}
+                                {
+                                    (years < 1) &&
+                                    <Badge
+                                        height="100%"
+                                        color="upstack.teal.700"
+                                        bg="upstack.teal.500"
+                                    >Months: {months}</Badge>
+                                }
                             </Stack>
-                            {
-                                (years >= 1) &&
-                                <Badge
-                                    height="100%"
-                                    width="100%"
-                                    color="upstack.orange.800"
-                                    bg="upstack.orange.300"
-                                >Years: {years}+</Badge>}
-                            {
-                                (years < 1) &&
-                                <Badge
-                                    height="100%"
-                                    width="100%"
-                                    color="upstack.teal.700"
-                                    bg="upstack.teal.500"
-                                >Months: {months}</Badge>
+
+                            {/* Airtable specific Icon (free, but have to cite) */}
+                            {title === 'Airtable' &&
+                                <span>
+                                    <b><a href="https://iconscout.com/icons/airtable" target="_blank">Airtable Icon</a> by <a href="https://iconscout.com/contributors/icon-mafia" target="_blank">Icon Mafia</a></b>
+                                </span>
                             }
 
                         </Stack>

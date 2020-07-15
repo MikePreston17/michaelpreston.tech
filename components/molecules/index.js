@@ -1,5 +1,5 @@
 export { Card } from './CardTemplates';
-export { EntryList } from './EntryList';
+export { ProjectList as EntryList } from './ProjectList';
 export { SkillCard } from './SkillsCard';
 export { ProjectCard } from './ProjectCard';
 export { AirbnbCard } from './AirbnbCard';

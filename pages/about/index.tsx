@@ -36,9 +36,7 @@ const recommendations = [
 ]
 
 export const About = () => {
-
-    // TODO: useAirtable()
-
+    
     return (
         <Stack>
             <Heading fontFamily="Monda; Trebuchet MS">About Michael</Heading>

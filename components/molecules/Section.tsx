@@ -2,10 +2,10 @@ import { FC, ReactChild, ReactNode } from 'react';
 
 export type SectionProps = {
     id: string
-    children: ReactChild | NamedSectionSlots
+    children: ReactChild | SectionSlots
 }
 
-type NamedSectionSlots = {
+type SectionSlots = {
     content: ReactNode
     title?: string | ReactNode
     subtitle?: string
@@ -13,7 +13,7 @@ type NamedSectionSlots = {
 }
 
 const isObject = <T extends object>(value: any): value is T => typeof value === 'object' && typeof value !== 'function' && value != undefined
-export const areNamedSlots = (children: any): children is NamedSectionSlots => isObject(children) && 'content' in children
+const areNamedSlots = (children: any): children is SectionSlots => isObject(children) && 'content' in children
 
 // A template for named Sections we can scroll through:
 export const Section: FC<SectionProps> = (props) => {

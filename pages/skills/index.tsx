@@ -1,6 +1,6 @@
 
-import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid, Link } from '@chakra-ui/core';
-// import Link from 'next/link'
+import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid } from '@chakra-ui/core';
+import Link from 'next/link'
 import { useAirtable } from '../../hooks/useAirtable';
 import { EntryList, Card } from '../../components';
 import { Technology } from '../../models/Airtable';
@@ -18,14 +18,7 @@ export const Skills = () => {
     return (
         <Box
             p={5}
-            // border="3px lime dotted"
-            // height="100%"
-        >            
-            <Link color="upstack.blue.500"
-                mb={4}
-            >
-                <a href="https://iconscout.com/icons/airtable" target="_blank">Airtable Icon</a> by <a href="https://iconscout.com/contributors/icon-mafia" target="_blank">Icon Mafia</a>
-            </Link>
+        >
             <Box
                 alignContent='left'
                 justifyContent='left'

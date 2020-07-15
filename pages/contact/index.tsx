@@ -8,23 +8,11 @@ const myEmail = `michael.n.preston@gmail.com`
 const myPhone = `(817) 565-2372`
 
 export const Contact = () => {
-
-    return (
-        <div className='alignLeft'>
-            <Heading isTruncated>
-                Contact Me!
-            </Heading>
-            <Box>
-                <Stack>
-                    <ContactForm />
-                    {/* <Link href={Routes.HOME}><a>Go Home</a></Link> */}
-                </Stack>
-            </Box>
-        </div>
-    )
+    return (<ContactForm />)
 }
 
 
+{/* <Link href={Routes.HOME}><a>Go Home</a></Link> */ }
 // var clipboard = new ClipboardJS('.btn');
 // clipboard.destroy(); //TODO: Use in componentWillUnmount or destructor.
 

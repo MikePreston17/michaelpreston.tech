@@ -51,7 +51,7 @@ export const Projects = () => {
     //     ? sampleProjects
     //     : projects.sort((a, b) => a.fields.order - b.fields.order) || [];
 
-    console.info(`Loaded ${projects.length} project entries!: `)
+    // console.info(`Loaded ${projects.length} project entries!: `)
 
     return (
         <Stack

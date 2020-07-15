@@ -15,7 +15,7 @@ export class About {
 
 export class Project {
     Name: string
-    Media: string
+    Media: object
     Website: string
     Description: string
     Repository: string

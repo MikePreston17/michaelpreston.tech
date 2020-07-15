@@ -1,4 +1,3 @@
-// import { ZeitCard, ZeitContainer, SlantedNavbar } from '../components'
 import { Stack, Box, Flex, Icon, Heading } from '@chakra-ui/core'
 import { About } from './about'
 import { Skills } from './skills'
@@ -8,6 +7,8 @@ import { Link as Jump, animateScroll as scroll } from 'react-scroll'
 import { ReactChild } from 'react'
 import { ReactNode } from 'react';
 import { Section } from '../components/molecules/Section'
+
+const fontFamily = "Monda; Trebuchet MS"
 
 const Layout = () => {
     return (
@@ -37,7 +38,7 @@ const Layout = () => {
                     >
                         <Heading
                             mb={4}
-                            fontFamily="Monda"
+                            fontFamily={fontFamily}
                             bg="kiyap.sushi.300"
                             color="kiyap.sushi.50"
                             size="2xl">
@@ -55,7 +56,9 @@ const Layout = () => {
                     title:
                         <Heading
                             mb={4}
-                            fontFamily="Monda; Trebuchet MS"
+                            fontFamily={fontFamily}
+                            bg="kiyap.sushi.300"
+                            color="kiyap.sushi.50"
                             size="2xl">
                             Technical Skills:
                         </Heading>,
@@ -66,7 +69,15 @@ const Layout = () => {
 
             <Section id="contact">
                 {{
-                    title: "contact",
+                    title: <Heading isTruncated
+                        mb={4}
+                        bg="kiyap.sushi.300"
+                        color="kiyap.sushi.50"
+                        size="2xl"
+                        fontFamily={fontFamily}
+                    >
+                        Contact Me!
+                </Heading>,
                     content: <Contact />
                 }}
             </Section>

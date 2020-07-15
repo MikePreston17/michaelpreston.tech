@@ -5,3 +5,5 @@ export const navButtons = [
     { route: '/resume', name: 'RESUME', icon: 'fas fa-user-tie' },
     { route: '/aboutme', name: 'ABOUT', icon: 'far fa-address-card' },
 ]
+
+export default navButtons;
