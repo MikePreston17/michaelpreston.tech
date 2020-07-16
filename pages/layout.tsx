@@ -8,7 +8,7 @@ import { ReactChild } from 'react'
 import { ReactNode } from 'react';
 import { Section } from '../components/molecules/Section'
 
-const fontFamily = "Monda; Trebuchet MS"
+const fontFamily = "Lato, Monda, Trebuchet MS"
 
 const Layout = () => {
     return (

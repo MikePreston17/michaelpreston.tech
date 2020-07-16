@@ -10,7 +10,7 @@ let sampleProjects: Project[];
 sampleProjects = [
     {
         Name: "Kiyap",
-        Media: "",
+        Media: [""],
         Website: "http://www.kiyapp.herokuapp.com",
         Description: "Find your local sifu!",
         Repository: "http://www.github.com/mikepreston17/kiyap",
@@ -27,7 +27,7 @@ sampleProjects = [
     },
     {
         Name: "TPOT Toolbox",
-        Media: "",
+        Media: [""],
         Website: "http://www.tpot-toolbox.netlify.com",
         Description: "A WYSIWYG Letters editor",
         Repository: "http://www.github.com/harvesthavenapps/tpot-next",
