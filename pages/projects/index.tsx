@@ -6,43 +6,6 @@ import { Project } from '../../models';
 import { FC } from 'react';
 import { EntryList } from 'components/molecules';
 
-let sampleProjects: Project[];
-sampleProjects = [
-    {
-        Name: "Kiyap",
-        Media: [""],
-        Website: "http://www.kiyapp.herokuapp.com",
-        Description: "Find your local sifu!",
-        Repository: "http://www.github.com/mikepreston17/kiyap",
-        Tech: ["React", "Typescript", "NextJS", "Firebase", "Google Maps"],
-        Contributors: [
-            {
-                Name: "Braden Preston",
-                GitHub: "http://www.github.com/bpfilmsinc",
-                LinkedIn: "",
-                Portfolio: "",
-                Email: "bpfilmsinc@gmail.com",
-            },
-        ],
-    },
-    {
-        Name: "TPOT Toolbox",
-        Media: [""],
-        Website: "http://www.tpot-toolbox.netlify.com",
-        Description: "A WYSIWYG Letters editor",
-        Repository: "http://www.github.com/harvesthavenapps/tpot-next",
-        Tech: ["React", "Typescript", "NextJS", "Firebase", "chakra-ui", "mobx"],
-        Contributors: [
-            {
-                Name: "Braden Preston",
-                GitHub: "http://www.github.com/bpfilmsinc",
-                LinkedIn: "",
-                Portfolio: "",
-                Email: "bpfilmsinc@gmail.com",
-            },
-        ],
-    }
-]
 
 export const Projects = () => {
     let { projects } = useAirtable();
@@ -57,12 +20,6 @@ export const Projects = () => {
         <Stack
             alignItems="center"
         >
-            {/* <Heading
-                bg="kiyap.sushi.300"
-                color="kiyap.sushi.50"
-                >
-                Projects</Heading> */}
-
             {!projects
                 ? <Spinner color="upstack.teal.500" />
                 : <EntryList entries={projects} />}
@@ -87,3 +44,42 @@ export const Projects = () => {
 // }
 
 export default Projects
+
+
+// let sampleProjects: Project[];
+// sampleProjects = [
+//     {
+//         Name: "Kiyap",
+//         Media: [""],
+//         Website: "http://www.kiyapp.herokuapp.com",
+//         Description: "Find your local sifu!",
+//         Repository: "http://www.github.com/mikepreston17/kiyap",
+//         Tech: ["React", "Typescript", "NextJS", "Firebase", "Google Maps"],
+//         Contributors: [
+//             {
+//                 Name: "Braden Preston",
+//                 GitHub: "http://www.github.com/bpfilmsinc",
+//                 LinkedIn: "",
+//                 Portfolio: "",
+//                 Email: "bpfilmsinc@gmail.com",
+//             },
+//         ],
+//     },
+//     {
+//         Name: "TPOT Toolbox",
+//         Media: [""],
+//         Website: "http://www.tpot-toolbox.netlify.com",
+//         Description: "A WYSIWYG Letters editor",
+//         Repository: "http://www.github.com/harvesthavenapps/tpot-next",
+//         Tech: ["React", "Typescript", "NextJS", "Firebase", "chakra-ui", "mobx"],
+//         Contributors: [
+//             {
+//                 Name: "Braden Preston",
+//                 GitHub: "http://www.github.com/bpfilmsinc",
+//                 LinkedIn: "",
+//                 Portfolio: "",
+//                 Email: "bpfilmsinc@gmail.com",
+//             },
+//         ],
+//     }
+// ]

@@ -15,11 +15,12 @@ export class About {
 
 export class Project {
     Name: string
-    Media: object
+    Media: Object
     Website: string
     Description: string
     Repository: string
     Tech: string[]
+    Snippet: Object
     Contributors: Teammate[]
 }
 

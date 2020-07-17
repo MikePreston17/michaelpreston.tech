@@ -4,8 +4,6 @@ const linkedInUrl = 'https://www.linkedin.com/in/michael-n-preston/'
 import Routes from '../../constants/routes'
 import { AiOutlineLinkedin } from 'react-icons/ai'
 
-
-
 export const Landing = () => {
 
     return (
@@ -19,8 +17,6 @@ export const Landing = () => {
         </Box>
     )
 }
-
-
 
 const OldHomepage = () => (
     <section className={'hero container'}>

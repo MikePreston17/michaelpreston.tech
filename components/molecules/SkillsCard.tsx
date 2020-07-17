@@ -31,11 +31,7 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
             borderRadius="25px"
             bg="upstack.orange.300"
             // boxShadow='0 5px 15px 3px rgba(0, 105, 135, .4)'
-            // boxShadow='inset 3px 1px 1px 3px #f4245c'
             boxShadow='inset 0 1px 10px 3px rgba(244,36,92,0.5)'
-        // height="100%"
-        // maxHeight="80em"
-        // overflowY="auto"
         >
             {/* Inner box */}
             <Box
@@ -46,14 +42,9 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                 bg="upstack.cream.500"
                 verticalAlign="center"
                 boxShadow="0 3px 15px 5px rgba(35,194,174,0.50)"
-            // boxShadow="0 1px 10px 2px #886be1"
             >
                 <Card>{{
                     header:
-                        // <Box
-                        //     // width="100%"
-                        //     // bg="upstack.cream.500"
-                        //     >
                         <Stack width="100%" align="center" spacing={3} px={16} >
                             <Heading color="upstack.orange.600" size="lg">{title}</Heading>
                         </Stack>,
@@ -68,11 +59,6 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                         <Stack
                             width="100%"
                             height="100%"
-                        // mb={3}
-                        // borderWidth="3px"
-                        // shadow="1 1px 5px upstack.teal.700"
-                        // boxShadow: '1 1px 5px rgba(0,0,0,0.2)',
-                        // border="2px upstack.teal.700 dashed"
                         >
                             <Text
                                 color="upstack.teal.700"
@@ -81,7 +67,6 @@ export const SkillCard: FC<SkillCardProps> = ({ title, duration, url, rating, de
                             >
                                 {description}
                             </Text>
-
 
                             <Stack isInline justify="space-between">
                                 {/* <Text mt={2}><b>Last Used: </b>{end}</Text> */}

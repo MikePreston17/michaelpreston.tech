@@ -36,9 +36,11 @@ const recommendations = [
 ]
 
 export const About = () => {
-    
+
     return (
-        <Stack>
+        <Stack
+            height="100vh"
+        >
             <Heading fontFamily="Monda; Trebuchet MS">About Michael</Heading>
             <Accordion allowMultiple>
                 {sections.map((section, index) => {

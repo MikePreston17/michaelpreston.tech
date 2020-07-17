@@ -1,5 +1,4 @@
 import React, { FC, ReactNode, ReactChild } from 'react';
-import { Box } from '@chakra-ui/core';
 
 type Props = {
     children: ReactChild | CardSlots
@@ -13,7 +12,6 @@ type CardSlots = {
 }
 
 export const Card: FC<Props> = (props) => {
-    // console.log('props :>> ', props);
 
     const { children } = props;
 

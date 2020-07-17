@@ -1,7 +1,8 @@
-import { Box, Badge, Image, Link, Icon, Heading, Flex, Button } from "@chakra-ui/core";
+import { Box, Badge, Image, Link, Heading, Flex, Button, Icon, Tooltip } from "@chakra-ui/core";
 import { FC } from 'react';
 import { Project } from "../../models";
 import Card from "./CardTemplates";
+import { GrCirclePlay } from "react-icons/gr";
 
 type Props = {
     project: Project
@@ -13,52 +14,51 @@ export const ProjectCard: FC<Props> = ({ project }) => {
     const {
         Name,
         Media,
-        Website,
         Description,
         Repository,
+        Website,
         Tech,
-        Contributors
+        Contributors,
+        Snippet,
     } = project;
 
-    let imgUrl = Media[0]?.url || 'No Link found';
-// console.log('Media :>> ', Media[0]);
+    let imgUrl = (Media && Media[0]?.url)
+        || (Snippet && Snippet[0]?.url)
+        || 'https://via.placeholder.com/200';
+
     return (
         <Box
-            // padding="15px"
+            style={{ background: "linear-gradient(to right, #2bc0e4, #eaecc6)" }}
             mb={10}
             p={4}
-            display={{ md: "flex" }}
-            // height="100%"
-            // width="100%"
             borderRadius="25px"
-            bg="upstack.blue.500"
             verticalAlign="center"
         >
             <Card>{{
 
-                header:
-                    <Box bg="#fff">
-                        <Heading color="upstack.orange.400" size="md">{Name}</Heading>
-                    </Box>,
                 content:
                     <Flex
-                        d="flex"
-                        alignItems="baseline"
+                        // d="row"
+                        // alignItems="baseline"
+                        align="center"
                         mt={4}
                         mb={4}
                     >
-                        {Tech.map((techName, key) => <Badge variant="outline" key={key} margin='2px' variantColor="teal">{techName}</Badge>)}
-                        {
-                            Contributors &&
-                            Contributors.map(teammate => {
-                                // TODO: Github Avatar
-                                // <Avatar></Avatar>
+                        <Flex align="flex-end" >
+                            {Tech.map((techName, key) => <Badge variant="outline" key={key} margin='2px' variantColor="teal">{techName}</Badge>)}
 
-                                <Link href={teammate.LinkedIn} isExternal></Link>
-                            })
-                        }
+                            {
+                                Contributors &&
+                                Contributors.map(teammate => {
+                                    // TODO: Github Avatar
+                                    // <Avatar></Avatar>
 
-                        <Box
+                                    <Link href={teammate.LinkedIn} isExternal></Link>
+                                })
+                            }
+                        </Flex>
+                        <Flex
+                            align="center"
                             color="gray.500"
                             fontWeight="semibold"
                             letterSpacing="wide"
@@ -67,24 +67,84 @@ export const ProjectCard: FC<Props> = ({ project }) => {
                             ml="2"
                         >
                             {Description || "No description"}
-                        </Box>
+                        </Flex>
+
                     </Flex>,
+
                 media:
-                    <Box flex="shrink">
-                        <Image
-                            alt={Name}
-                            src={imgUrl}
-                            height="100%"
-                            rounded="lg"
-                        // clipPath="circle(50% at 50% 50%)"
-                        // width={"50em"}
+                    <Flex
+                        rounded="md"
+                        flex="shrink"
+                    >
+                        {imgUrl &&
+                            <Image
+                                size="200px"
+                                // borderRadius="25"
+                                alt={Name}
+                                src={imgUrl}
+                                objectFit="cover"
+                                // height="100%"
+                                rounded="lg"
+
+                            >
+                            </Image>
+                        }
+
+                        <Heading
+                            
+                            // ml={10}
+                            // textAlign="center"
+                            // // color="upstack.cream.500"
+                            // color="#fff"
+                            // // size="2xl"
+                            // fontSize="3rem"
+                            // letterSpacing="2px"
+                            // textTransform="uppercase"
+                            // // transform="translate(0%, 50%)"
+                            border="3px #fff solid"
                         >
-                        </Image>
-                    </Box>,
-                actions: <Flex>
-                    <Button onClick={() => alert("all hands on deck!")}>One</Button>
-                    <Button>Two</Button>
-                </Flex>
+                            {Name}
+                        </Heading>
+
+                    </Flex>,
+
+                // actions: <Flex>
+                //     <Button onClick={() => alert("all hands on deck!")}>One</Button>
+                //     <Button>Two</Button>
+                // </Flex>
+
+                actions:
+                    <Flex padding="2">
+                        {Website &&
+                            <Button
+                                mr={4}
+                                style={{ background: "linear-gradient(to right, #f12711, #f5af19)" }}
+                                bg="kiyap.sushi.500" color="kiyap.cream.500" // className="btn1"
+                                title="Play Demo!"
+                                boxShadow="0 10px 20px rgba(241,39,17,0.25), 0 10px 10px rgba(245,175,25,0.22)"
+                            >
+
+                                <Link href={Website} isExternal>
+                                    Launch {Name}
+                                </Link>
+                                <GrCirclePlay
+                                    // color="red"
+                                    size={32} />
+                            </Button>}
+
+                        {Repository &&
+                            <Button
+                                title="Checkout the code!"
+                                // style={{ background: "linear-gradient(to right, #000, #434343)" }}
+                                size="sm"
+                                boxShadow="0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"
+                            >
+                                <Link href={Repository} isExternal>
+                                    View {Name} Code
+                            </Link>
+                                <Icon name="github" />
+                            </Button>}
+                    </Flex>
             }}
             </Card>
         </Box>

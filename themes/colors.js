@@ -5,6 +5,13 @@ export default {
         ...theme.colors,
         // Example of adding a new brand color. Used in props like variantColor, bg, etc.
         transparent: "transparent",
+
+        // fades: {
+        //     bora: {
+        //         500: "linear-gradient (-45deg, #2BC0E4, #EAECC6)"                
+        //     }
+        // },
+
         dark: {
             50: '#eeeefe',
             100: '#cecfe6',

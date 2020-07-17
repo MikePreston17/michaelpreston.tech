@@ -25,28 +25,8 @@ const Layout = () => {
 
             <Section id="about">
                 {{
-                    title: "About Me",
                     content: <About />
                 }}
-            </Section>
-
-            <Section id="projects"
-            >{{
-                title:
-                    <Stack
-                        alignItems="center"
-                    >
-                        <Heading
-                            mb={4}
-                            fontFamily={fontFamily}
-                            bg="kiyap.sushi.300"
-                            color="kiyap.sushi.50"
-                            size="2xl">
-                            My Projects
-                        </Heading>
-                    </Stack>,
-                content: <Projects />
-            }}
             </Section>
 
             <Section
@@ -59,12 +39,33 @@ const Layout = () => {
                             fontFamily={fontFamily}
                             bg="kiyap.sushi.300"
                             color="kiyap.sushi.50"
-                            size="2xl">
-                            Technical Skills:
+                            size="2xl"
+                        >
+                            Technical Skills
                         </Heading>,
 
                     content: <Skills />
                 }}
+            </Section>
+
+            <Section
+                id="projects"
+            >{{
+                title:
+                    <Box
+                        alignContent="center"
+                    >
+                        <Heading isTruncated
+                            mb={4}
+                            fontFamily={fontFamily}
+                            bg="kiyap.sushi.300"
+                            color="kiyap.sushi.50"
+                            size="2xl">
+                            My Projects
+                        </Heading>
+                    </Box>,
+                content: <Projects />
+            }}
             </Section>
 
             <Section id="contact">
@@ -75,6 +76,8 @@ const Layout = () => {
                         color="kiyap.sushi.50"
                         size="2xl"
                         fontFamily={fontFamily}
+
+                        // style={{ background: "linear-gradient(to right, #f12711, #bada55)" }}
                     >
                         Contact Me!
                 </Heading>,
