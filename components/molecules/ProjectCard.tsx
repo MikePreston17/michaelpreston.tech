@@ -28,7 +28,7 @@ export const ProjectCard: FC<Props> = ({ project }) => {
 
     return (
         <Box
-            style={{ background: "linear-gradient(to right, #2bc0e4, #eaecc6)" }}
+            style={{ background: "linear-gradient(to left, #2bc0e4, #eaecc6)" }}
             mb={10}
             p={4}
             borderRadius="25px"
@@ -90,18 +90,17 @@ export const ProjectCard: FC<Props> = ({ project }) => {
                             </Image>
                         }
 
-                        <Heading
-                            
-                            // ml={10}
-                            // textAlign="center"
-                            // // color="upstack.cream.500"
-                            // color="#fff"
-                            // // size="2xl"
-                            // fontSize="3rem"
-                            // letterSpacing="2px"
-                            // textTransform="uppercase"
-                            // // transform="translate(0%, 50%)"
+                        <Heading                            
+                            ml={10}
+                            textAlign="center"
+                            color="#fff"
+                            size="sm"
+                            fontSize="3rem"
+                            letterSpacing="2px"
+                            textTransform="uppercase"
+                            // transform="translate(0%, 50%)"
                             border="3px #fff solid"
+                            
                         >
                             {Name}
                         </Heading>
