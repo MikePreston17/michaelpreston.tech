@@ -1,4 +1,4 @@
-import { Box, List, Stack } from '@chakra-ui/core';
+import { Box, Button, Flex, List, Stack } from '@chakra-ui/core';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import styles from './todos.module.css'
@@ -31,9 +31,9 @@ export const Todo = () => {
         setTasks(newTasks);
     };
 
-    const completeTask = index => {
+    const toggleComplete = index => {
         const newTasks = [...tasks];
-        newTasks[index].completed = true;
+        newTasks[index].completed = !newTasks[index].completed;
         setTasks(newTasks);
     };
 
@@ -43,14 +43,13 @@ export const Todo = () => {
         setTasks(newTasks);
     };
 
-    const percentDone = Math.ceil(
-        tasks.filter(t => !!t.completed).length / tasks.length * 100);
+    const percentDone = Math.ceil(100 - tasksRemaining / (tasks.length || 1) * 100);
 
     return (
         <Box className={styles.body}>
             <div className={styles['todo-list']}>
                 <div className={styles.header}>Pending tasks ({tasksRemaining})</div>
-                <span className={styles.header}>{`${percentDone}% complete`}</span>
+                <div className={styles.header}>{`${percentDone}% complete`}</div>
                 <Stack
                 // className={styles.tasks}
                 >
@@ -58,7 +57,7 @@ export const Todo = () => {
                         <Task
                             task={task}
                             index={index}
-                            completeTask={completeTask}
+                            toggleComplete={toggleComplete}
                             removeTask={removeTask}
                             key={index}
                         />
@@ -72,16 +71,20 @@ export const Todo = () => {
     );
 }
 
-const Task = ({ task, index, completeTask, removeTask }) => {
+const Task = ({ task, index, toggleComplete, removeTask }) => {
     return (
-        <div
-            className={styles.button}
-            style={{ textDecoration: task.completed ? "line-through" : "" }}
-        >
-            {task.title}
-            <button style={{ background: "red" }} onClick={() => removeTask(index)}>x</button>
-            <button onClick={() => completeTask(index)}>Complete</button>
-        </div>
+        <Stack direction="row">
+            <div
+                className={styles.button}
+                style={{ textDecoration: task.completed ? "line-through" : "" }}
+            >
+                {task.title}
+            </div>
+            <Button onClick={() => toggleComplete(index)}>Complete</Button>
+            <Button
+                style={{ background: "#a14afe" }}
+                onClick={() => removeTask(index)}>x</Button>
+        </Stack>
     )
 }
 
