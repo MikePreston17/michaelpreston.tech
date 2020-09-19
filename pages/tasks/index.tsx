@@ -1,115 +1,23 @@
-import { Box, Button, Flex, List, Stack } from '@chakra-ui/core';
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import { Button, Flex, List, Stack } from '@chakra-ui/core';
 import styles from './todos.module.css'
+import { State, useState } from '@hookstate/core'
 
-
-export const Todo = () => {
-
-    const [tasksRemaining, setTasksRemaining] = useState(0);
-    const [tasks, setTasks] = useState([
-        {
-            title: "Grab some Pizza",
-            completed: true
-        },
-        {
-            title: "Do your workout",
-            completed: true
-        },
-        {
-            title: "Hangout with friends",
-            completed: false
-        }
-    ]);
-
-    useEffect(() => {
-        setTasksRemaining(tasks.filter(task => !task.completed).length)
-    });
-
-    const addTask = title => {
-        const newTasks = [...tasks, { title, completed: false }];
-        setTasks(newTasks);
-    };
-
-    const toggleComplete = index => {
-        const newTasks = [...tasks];
-        newTasks[index].completed = !newTasks[index].completed;
-        setTasks(newTasks);
-    };
-
-    const removeTask = index => {
-        const newTasks = [...tasks];
-        newTasks.splice(index, 1);
-        setTasks(newTasks);
-    };
-
-    const percentDone = Math.ceil(100 - tasksRemaining / (tasks.length || 1) * 100);
-
-    return (
-        <Box className={styles.body}>
-            <div className={styles['todo-list']}>
-                <div className={styles.header}>Pending tasks ({tasksRemaining})</div>
-                <div className={styles.header}>{`${percentDone}% complete`}</div>
-                <Stack
-                // className={styles.tasks}
-                >
-                    {tasks.map((task, index) => (
-                        <Task
-                            task={task}
-                            index={index}
-                            toggleComplete={toggleComplete}
-                            removeTask={removeTask}
-                            key={index}
-                        />
-                    ))}
-                </Stack>
-                <div className="create-task" >
-                    <CreateTask addTask={addTask} />
-                </div>
-            </div>
-        </Box>
-    );
+interface Task { name: string; priority?: number }
+export const Tasks = () => {
+    const state: State<Task[]> = useState([{ name: 'First Task' }] as Task[]);
+    return <>
+        {state.map((taskState: State<Task>, taskIndex) =>
+            <TaskEditor key={taskIndex} taskState={taskState} />
+        )}
+        <button onClick={() => state.merge([{ name: 'Untitled' }])}>Add task</button>
+    </>
+}
+function TaskEditor(props: { taskState: State<Task> }) {
+    const taskState = props.taskState;
+    return <p><input
+        value={taskState.name.get()}
+        onChange={e => taskState.name.set(e.target.value + 5)}
+    /></p>
 }
 
-const Task = ({ task, index, toggleComplete, removeTask }) => {
-    return (
-        <Stack direction="row">
-            <div
-                className={styles.button}
-                style={{ textDecoration: task.completed ? "line-through" : "" }}
-            >
-                {task.title}
-            </div>
-            <Button onClick={() => toggleComplete(index)}>Complete</Button>
-            <Button
-                style={{ background: "#a14afe" }}
-                onClick={() => removeTask(index)}>x</Button>
-        </Stack>
-    )
-}
-
-const CreateTask = ({ addTask }) => {
-    const [value, setValue] = useState("");
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (!value) return;
-
-        addTask(value);
-        setValue("");
-    }
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                className="input"
-                value={value}
-                placeholder="Add a new task"
-                onChange={e => setValue(e.target.value)}
-            />
-        </form>
-    );
-}
-
-export default Todo
+export default Tasks
