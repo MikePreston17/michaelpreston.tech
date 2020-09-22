@@ -49,7 +49,6 @@ export class SoftSkill {
     Enabled: boolean
 }
 
-
 export class Teammate {
     Email: string
     GitHub: string
@@ -62,11 +61,27 @@ export class Teammate {
 /** Job Hunt base */
 export class Contact {
     Email: string
-    "Full Name": string
+    'Full Name': string
     Role: string
     Handles: string
     Face: string | Blob //Img
     Notes: string
     Company: string
     Phone: string
+}
+
+export class Task {
+    Id: string
+    Title: string
+    Completed: boolean
+    // Status: TaskStatus
+    // Started: Date
+    // Finished: Date
+    // Notes: string
+}
+
+enum TaskStatus {
+    Todo = 'Todo',
+    InProgress = 'In progress',
+    Done = 'Done'
 }

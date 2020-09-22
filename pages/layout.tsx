@@ -1,11 +1,9 @@
-import { Stack, Box, Flex, Icon, Heading } from '@chakra-ui/core'
+import { Box, Heading } from '@chakra-ui/core'
 import { About } from './about'
 import { Skills } from './skills'
 import { Projects } from './projects'
 import { Contact } from './contact'
 import { Link as Jump, animateScroll as scroll } from 'react-scroll'
-import { ReactChild } from 'react'
-import { ReactNode } from 'react';
 import { Section } from '../components/molecules/Section'
 
 const fontFamily = "Lato, Monda, Trebuchet MS"
@@ -126,7 +124,6 @@ const Layout = () => {
 // A scrolling navbar utilizing react-scroll library:
 const ScrollingNavbar = () => {
 
-    const scrollToTop = () => scroll.scrollToTop();
 
     return (
         <nav className="nav" id="navbar">

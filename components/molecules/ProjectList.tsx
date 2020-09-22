@@ -8,10 +8,10 @@ type Props = {
 
 export const ProjectList: FC<Props> = ({ entries }) => {
 
-    const Records = entries.map((project) => {
+    const Records = entries.map((project, index) => {
 
         return (
-            <ProjectCard project={project}/>
+            <ProjectCard key={index} project={project} />
         )
     })
 

@@ -17,10 +17,13 @@
           "@helpers": "./helpers",
           "@contexts": "./contexts",
           "@routes": "./constants/routes",
-          "@atoms": "./components/atoms",
-          "@molecules": "./components/molecules",
+          "@models": "./models",
+          "@templates": "./components/templates",
           "@organisms": "./components/organisms",
-          "@templates": "./components/templates"
+          "@functions": [
+            "./functions"
+          ],
+          "@errors": "./models/Errors"
         }
       }
     ],

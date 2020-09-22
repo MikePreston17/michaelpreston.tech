@@ -13,7 +13,7 @@ const nothing = "No data found";
 
 export const Skills = () => {
     const { technologies } = useAirtable();
-    console.log('technologies :>> ', technologies);
+// console.log('technologies :>> ', technologies);
 
     return (
         <Box
