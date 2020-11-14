@@ -1,9 +1,9 @@
 enum Rating {
-    "Novice" = "Only tried it once or heard of it",
-    "Advanced Beginner" = "Light professional or hobby exposure",
-    "Intermediat" = "Normal professional usage and ability beyond basics",
-    "Good" = "Proficient at basics and adaptable to multiple use cases",
-    "Proficient" = "Higly skilled and can readily take on most problems"
+    'Novice' = 'Only tried it once or heard of it',
+    'Advanced Beginner' = 'Light professional or hobby exposure',
+    'Intermediat' = 'Normal professional usage and ability beyond basics',
+    'Good' = 'Proficient at basics and adaptable to multiple use cases',
+    'Proficient' = 'Higly skilled and can readily take on most problems'
 }
 
 /** My Portfolio base */
@@ -27,13 +27,13 @@ export class Project {
 export class Technology {
     Name: string
     Notes: string
-    "Last Used": Date
-    "First Used": Date
+    'Last Used': Date
+    'First Used': Date
     TimeUsed: number
     Media: object
     Scope: string[]
     Experiences: string
-    "Self-Rating": number
+    'Self-Rating': number
 
     constructor(props) {
         // TODO: map the used dates to a friendly format with moment.
@@ -68,20 +68,4 @@ export class Contact {
     Notes: string
     Company: string
     Phone: string
-}
-
-export class Task {
-    Id: string
-    Title: string
-    Completed: boolean
-    // Status: TaskStatus
-    // Started: Date
-    // Finished: Date
-    // Notes: string
-}
-
-enum TaskStatus {
-    Todo = 'Todo',
-    InProgress = 'In progress',
-    Done = 'Done'
 }

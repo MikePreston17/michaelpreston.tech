@@ -107,11 +107,6 @@ export const ProjectCard: FC<Props> = ({ project }) => {
 
                     </Flex>,
 
-                // actions: <Flex>
-                //     <Button onClick={() => alert("all hands on deck!")}>One</Button>
-                //     <Button>Two</Button>
-                // </Flex>
-
                 actions:
                     <Flex padding="2">
                         {Website &&
