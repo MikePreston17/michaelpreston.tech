@@ -1,9 +1,9 @@
-export function TaskButton(props: {
+export const TaskButton = (props: {
     onClick?: () => void;
     borderColor?: string;
     text: string;
     style?: React.CSSProperties;
-}) {
+}) => {
     return <button
         style={{
             fontSize: '1em',
@@ -19,3 +19,5 @@ export function TaskButton(props: {
         onClick={props.onClick}
     >{props.text}</button>
 }
+
+export default TaskButton

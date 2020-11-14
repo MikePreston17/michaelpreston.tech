@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TaskType } from '../../models'
 import CreateTask from './vanilla/CreateTask'
-import db from './vanilla/firebase'
+import db from '../../services/firebase'
 import TaskList from './vanilla/TaskList'
 
 export default function Index() {

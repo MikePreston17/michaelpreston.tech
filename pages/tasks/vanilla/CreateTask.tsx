@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import db from './firebase'
+import db from '../../../services/firebase'
 
 const CreateTask = () => {
     const [title, setTitle] = useState('')

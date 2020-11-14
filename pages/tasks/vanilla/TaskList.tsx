@@ -18,31 +18,33 @@ export const TaskList: FC<Props> = ({ tasks, toggleDone, deleteTask }) => {
                 <Box>
                     <h2>Remaining:</h2>
 
-                    {tasks.filter(t => !t.done).map((task, id) => {
-                        return (<div key={id}>
-                            <p>{task.title || task.title}</p>
-                            <input
-                                onChange={() => toggleDone(task)}
-                                checked={task.done}
-                                type="checkbox"
-                            />
-                        </div>)
-                    })}
+                    {tasks &&
+                        tasks.filter(t => !t.done).map((task, id) => {
+                            return (<div key={id}>
+                                <p>{task.title || task.title}</p>
+                                <input
+                                    onChange={() => toggleDone(task)}
+                                    checked={task.done}
+                                    type="checkbox"
+                                />
+                            </div>)
+                        })}
                 </Box>
                 <Box>
                     <h2>Completed: </h2>
 
-                    {tasks.filter(t => !!t.done).map((task, id) => {
-                        return (<div key={id}>
-                            <p>{task.title || task.title}</p>
-                            <input
-                                onChange={() => toggleDone(task)}
-                                checked={task.done}
-                                type="checkbox"
-                            />
-                            <button onClick={() => deleteTask(task)}>x</button>
-                        </div>)
-                    })}
+                    {tasks &&
+                        tasks.filter(t => !!t.done).map((task, id) => {
+                            return (<div key={id}>
+                                <p>{task.title || task.title}</p>
+                                <input
+                                    onChange={() => toggleDone(task)}
+                                    checked={task.done}
+                                    type="checkbox"
+                                />
+                                <button onClick={() => deleteTask(task)}>x</button>
+                            </div>)
+                        })}
                 </Box>
             </Flex>
         </Flex>

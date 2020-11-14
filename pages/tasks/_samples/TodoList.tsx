@@ -1,6 +1,7 @@
 import { Box, Button, Stack } from '@chakra-ui/core';
 import React, { useEffect, useState } from 'react';
-import styles from './todos.module.css';
+// import styles from '../../tasks/todos.module.css';
+import styles from '../todos.module.css'
 
 
 export const TodoList = () => {
