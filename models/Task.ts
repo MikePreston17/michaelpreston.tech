@@ -1,8 +1,9 @@
 export interface TaskType {
-    Title: string,
-    Status: string,
-    Done: boolean,
-    Started: Date,
-    Completed: Date,
-    Notes: string,
+    id: string,
+    title: string,
+    status: string,
+    done: boolean,
+    started: Date,
+    completed: Date,
+    notes: string,
 }
