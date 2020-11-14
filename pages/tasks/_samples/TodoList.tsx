@@ -1,49 +1,49 @@
-import { Box, Button, Stack } from '@chakra-ui/core';
-import React, { useEffect, useState } from 'react';
+import { Box, Button, Stack } from '@chakra-ui/core'
+import React, { useEffect, useState } from 'react'
 // import styles from '../../tasks/todos.module.css';
 import styles from '../todos.module.css'
 
 
 export const TodoList = () => {
 
-    const [tasksRemaining, setTasksRemaining] = useState(0);
+    const [tasksRemaining, setTasksRemaining] = useState(0)
     const [tasks, setTasks] = useState([
         {
-            title: "Grab some Pizza",
+            title: 'Grab some Pizza',
             completed: true
         },
         {
-            title: "Do your workout",
+            title: 'Do your workout',
             completed: true
         },
         {
-            title: "Hangout with friends",
+            title: 'Hangout with friends',
             completed: false
         }
-    ]);
+    ])
 
     useEffect(() => {
-        setTasksRemaining(tasks.filter(task => !task.completed).length);
-    });
+        setTasksRemaining(tasks.filter(task => !task.completed).length)
+    })
 
     const addTask = title => {
-        const newTasks = [...tasks, { title, completed: false }];
-        setTasks(newTasks);
-    };
+        const newTasks = [...tasks, { title, completed: false }]
+        setTasks(newTasks)
+    }
 
     const toggleComplete = index => {
-        const newTasks = [...tasks];
-        newTasks[index].completed = !newTasks[index].completed;
-        setTasks(newTasks);
-    };
+        const newTasks = [...tasks]
+        newTasks[index].completed = !newTasks[index].completed
+        setTasks(newTasks)
+    }
 
     const removeTask = index => {
-        const newTasks = [...tasks];
-        newTasks.splice(index, 1);
-        setTasks(newTasks);
-    };
+        const newTasks = [...tasks]
+        newTasks.splice(index, 1)
+        setTasks(newTasks)
+    }
 
-    const percentDone = Math.ceil(100 - tasksRemaining / (tasks.length || 1) * 100);
+    const percentDone = Math.ceil(100 - tasksRemaining / (tasks.length || 1) * 100)
 
     return (
         <Box className={styles.body}>
@@ -66,8 +66,8 @@ export const TodoList = () => {
                 </div>
             </div>
         </Box>
-    );
-};
+    )
+}
 
 
 export const TodoItem = ({ task, index, toggleComplete, removeTask }) => {
@@ -75,27 +75,27 @@ export const TodoItem = ({ task, index, toggleComplete, removeTask }) => {
         <Stack direction="row">
             <div
                 className={styles.button}
-                style={{ textDecoration: task.completed ? "line-through" : "" }}
+                style={{ textDecoration: task.completed ? 'line-through' : '' }}
             >
                 {task.title}
             </div>
             <Button onClick={() => toggleComplete(index)}>Complete</Button>
             <Button
-                style={{ background: "#a14afe" }}
+                style={{ background: '#a14afe' }}
                 onClick={() => removeTask(index)}>x</Button>
         </Stack>
     )
 }
 
 export const CreateTask = ({ addTask }) => {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState('')
 
     const handleSubmit = e => {
-        e.preventDefault();
-        if (!value) return;
+        e.preventDefault()
+        if (!value) return
 
-        addTask(value);
-        setValue("");
+        addTask(value)
+        setValue('')
     }
 
     return (
@@ -108,7 +108,7 @@ export const CreateTask = ({ addTask }) => {
                 onChange={e => setValue(e.target.value)}
             />
         </form>
-    );
+    )
 }
 
-export default TodoList;
+export default TodoList

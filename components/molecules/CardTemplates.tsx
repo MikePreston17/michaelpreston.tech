@@ -24,7 +24,7 @@ export const Card: FC<Props> = (props) => {
         const { header, content, media, actions } = children
 
         return (
-            <div className="card">
+            <div className="card" {...props}>
                 {header && <div className="card-header">{header}</div>}
                 {media && <div className="card-media">{media}</div>}
                 {content && <div className="card-content">{content}</div>}
