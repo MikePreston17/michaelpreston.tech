@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+<<<<<<< Updated upstream
 
 // import admin from 'firebase-admin'
 
@@ -17,6 +18,9 @@ import firebase from 'firebase'
 // import { toJS } from 'mobx'
 
 // import admin from 'firebase-admin'
+=======
+import { Task } from 'models'
+>>>>>>> Stashed changes
 
 const config = {
     apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -39,17 +43,26 @@ export const db = firebase
 export default db
 
 
+<<<<<<< Updated upstream
 // export const auth = firebase.auth();
 // // export const db = firebaseApp.firestore();
 // // export const db = firebase.firestore();
 // export const db = admin.firestore()
 // export const storage = firebase.storage();
+=======
+export const toggleDone = (task: Task) => {
+    // console.log('task', task)
+>>>>>>> Stashed changes
 
 // // *** User API ***
 
 // // const user = uid => new Document<any>(`users/${uid}`);
 
+<<<<<<< Updated upstream
 // // const users = () => new Collection("users");
+=======
+export const deleteTask = async (task: Task) => {
+>>>>>>> Stashed changes
 
 // const user = uid => firebase.database().ref(`users/${uid}`);
 
@@ -57,16 +70,27 @@ export default db
 
 // // *** Message API ***
 
+<<<<<<< Updated upstream
 // // const message = uid => db.ref(`messages/${uid}`);
+=======
+export const updateTask = async (task: Task) => {
+    console.log('update task :>>', task)
+    if (!task.id)
+        return
+>>>>>>> Stashed changes
 
 // // const messages = () => db.ref('messages');
 
 // // *** Merge Auth and DB User API *** //
 
+<<<<<<< Updated upstream
 // export const onAuthUserListener = (next, fallback) =>
 //     auth.onAuthStateChanged(
 //         async authUser => {
 //             if (authUser) {
+=======
+export const createTask = async (task: Task) => {
+>>>>>>> Stashed changes
 
 
 //                 /** Using firebase db */
