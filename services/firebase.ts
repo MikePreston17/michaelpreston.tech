@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import { Task } from 'models'
 
 const config = {
     apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -20,32 +21,44 @@ try {
 export const db = firebase
 export default db
 
-// export const toggleDone = (task: Task) => {
+export const tasksRef = db.firestore().collection('tasks')
 
-//     tasksRef.doc(task.id)
-//         .update({ done: !task.done })
-//         // .then((response) => { console.log('response :>> ', response) })
-//         .catch(console.error)
-// }
+export const toggleDone = (task: Task) => {
 
-// export const deleteTask = async (task: Task) => {
+    tasksRef.doc(task.id)
+        .update({ done: !task.done })
+        .catch(console.error)
+}
 
-//     if (!task.id)
-//         return
+export const deleteTask = async (task: Task) => {
 
-//     tasksRef.doc(task.id)
-//         .delete()
-//         .catch(console.error)
+    if (!task.id)
+        return
 
-//     //TODO: return deleted Id
-// }
+    tasksRef.doc(task.id)
+        .delete()
+        .catch(console.error)
+
+    return task.id
+}
 
 // export const updateTask = async (task: Task) => {
 //     console.log('update task :>>', task)
 //     if (!task.id)
-//         return
+//         return }
 
-    
+export const createTask = async (task: Task) => {
 
-//     export const createTask = async (task: Task) => {
-//     }
+    let record = await tasksRef.add({
+        ...task,
+        done: false,
+        status: null,
+        due: null,
+        created: Date.now()
+    })
+        .catch(console.error)
+
+    console.log('record', record)
+
+    return record
+}

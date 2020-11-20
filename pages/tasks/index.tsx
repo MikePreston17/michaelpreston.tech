@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Task } from '../../models'
 import CreateTask from './vanilla/CreateTask'
-import db from '../../services/firebase'
+import db, { tasksRef } from '../../services/firebase'
 import TaskList, { TaskCard } from './vanilla/TaskList'
 import styles from './todos.module.css'
 import Box from '@chakra-ui/core/dist/Box'
@@ -12,31 +12,14 @@ export default function Index() {
     const [tasks, setTasks] = useState([])
     const [input, setInput] = useState('')
 
-    const tasksRef = db.firestore().collection('tasks')
-
     useEffect(() => {
-
-        // const list = [
-        //     {
-        //         title: 'Grab some Pizza',
-        //         completed: true
-        //     },
-        //     {
-        //         title: 'Do your workout',
-        //         completed: true
-        //     },
-        //     {
-        //         title: 'Hangout with friends',
-        //         completed: false
-        //     }
-        // ]
-
         tasksRef
             .onSnapshot(snapshot => {
                 const list = snapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
                 }))
+                console.count('loaded')
                 setTasks(list)
             })
     }, [])
@@ -50,7 +33,6 @@ export default function Index() {
 
         tasksRef.doc(task.id)
             .update({ done: !task.done })
-            .then((response) => { console.log('response :>> ', response) })
             .catch(console.error)
     }
 
