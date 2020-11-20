@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { TaskType } from '../../../models'
+import { Task } from '../../../models'
 import Box from '@chakra-ui/core/dist/Box'
 import Flex from '@chakra-ui/core/dist/Flex'
 import { Card } from '../../../components/molecules'
@@ -8,8 +8,8 @@ import Heading from '@chakra-ui/core/dist/Heading'
 import Stack from '@chakra-ui/core/dist/Stack'
 
 type Props = {
-    tasks: TaskType[],
-    toggleDone: (task: TaskType) => void,
+    tasks: Task[],
+    toggleDone: (task: Task) => void,
     deleteTask: (event) => void
 }
 

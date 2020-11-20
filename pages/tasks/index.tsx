@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { TaskType } from '../../models'
+import { Task } from '../../models'
 import CreateTask from './vanilla/CreateTask'
 import db from '../../services/firebase'
 import TaskList, { TaskCard } from './vanilla/TaskList'
@@ -41,7 +41,7 @@ export default function Index() {
             })
     }, [])
 
-    const toggleDone = (task: TaskType) => {
+    const toggleDone = (task: Task) => {
         let index = tasks.indexOf(task)
         let updatedTasks = Object.assign([...tasks], { [index]: { ...task, done: !task.done } })
 
@@ -54,7 +54,7 @@ export default function Index() {
             .catch(console.error)
     }
 
-    const deleteTask = (task: TaskType) => {
+    const deleteTask = (task: Task) => {
 
         if (!task.id)
             return

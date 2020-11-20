@@ -1,7 +1,7 @@
 import { createState, useState } from '@hookstate/core'
-import { TaskType } from 'models'
+import { Task } from 'models'
 
-const state = createState<TaskType[]>([
+const state = createState<Task[]>([
     // {
     //     Title: 'Eat pizza',
     //     Done: true,
