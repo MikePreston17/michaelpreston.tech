@@ -1,14 +1,13 @@
-import { Routes } from '../../constants/routes';
+import { Routes } from '../../constants/routes'
 import { useAirtable } from '../../hooks/useAirtable'
-import { Stack, Heading, Spinner, Button, Box } from '@chakra-ui/core';
+import { Stack, Heading, Spinner, Button, Box } from '@chakra-ui/core'
 import Link from 'next/link'
-import { Project } from '../../models';
-import { FC } from 'react';
-import { EntryList } from 'components/molecules';
-
+import { Project } from '../../models'
+import { FC } from 'react'
+import { EntryList } from 'components/molecules'
 
 export const Projects = () => {
-    let { projects } = useAirtable();
+    let { projects } = useAirtable()
 
     // let myProjects = projects.length === 0
     //     ? sampleProjects

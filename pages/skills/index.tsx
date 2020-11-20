@@ -1,18 +1,18 @@
 
-import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid } from '@chakra-ui/core';
+import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid } from '@chakra-ui/core'
 import Link from 'next/link'
-import { useAirtable } from '../../hooks/useAirtable';
-import { EntryList, Card } from '../../components';
-import { Technology } from '../../models/Airtable';
-import { SkillCard } from '../../components/molecules';
-import { FC } from 'react';
+import { useAirtable } from '../../hooks/useAirtable'
+import { EntryList, Card } from '../../components'
+import { Technology } from '../../models/Airtable'
+import { SkillCard } from '../../components/molecules'
+import { FC } from 'react'
 
-const disclaimer = `All usage times are estimates and may or may not include professional experience, but will certainly include time I used researching and trying out technologies with proof-of-concept websites.  I consider all relevant experience as  experience and wish to work with those who are willing to take a chance on software developers who demonstrate their potential and willingness to learn.`
+const disclaimer = 'All usage times are estimates and may or may not include professional experience, but will certainly include time I used researching and trying out technologies with proof-of-concept websites.  I consider all relevant experience as  experience and wish to work with those who are willing to take a chance on software developers who demonstrate their potential and willingness to learn.'
 
-const nothing = "No data found";
+const nothing = 'No data found'
 
 export const Skills = () => {
-    const { technologies } = useAirtable();
+    const { technologies } = useAirtable()
 // console.log('technologies :>> ', technologies);
 
     return (
@@ -51,13 +51,13 @@ const TechGrid: FC<TechnologyProps> = ({ entries }) => {
             Name,
             Notes,
             TimeUsed: duration,
-            "First Used": start,
-            "Last Used": end,
-            "Self-Rating": rating,
+            'First Used': start,
+            'Last Used': end,
+            'Self-Rating': rating,
             Experiences: description,
-        } = entry || {};
+        } = entry || {}
 
-        let imgUrl = image[0]?.url || '';
+        let imgUrl = image[0]?.url || ''
 
         return (
             <SkillCard

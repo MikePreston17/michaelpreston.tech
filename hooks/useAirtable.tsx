@@ -1,4 +1,3 @@
-
 import React, { useContext, createContext, useState, useEffect } from 'react'
 
 import {
@@ -12,10 +11,7 @@ import {
 
 import Airtable from 'airtable'
 
-
 /** Airtable Hook */
-
-
 const apiKey = process.env.AIRTABLE_API_KEY
 const baseId = process.env.AIRTABLE_RESUME_BASE
 const apiUri = 'https://api.airtable.com/v0/'
@@ -41,14 +37,11 @@ export const getTable = async (tableName: string) =>
 /** API */
 function useAirtableProvider() {
 
-
     const [about, setAbout] = useState<About[]>([])
     const [projects, setProjects] = useState<Project[]>([])
     const [teammates, setTeammates] = useState<Teammate[]>([])
     const [softSkills, setSoftSkills] = useState<SoftSkill[]>([])
     const [technologies, setTechnologies] = useState<Technology[]>([])
-
-
 
     const getProjects = async () => {
         const call = await fetch(makeReadQuery('Projects'))
@@ -65,14 +58,10 @@ function useAirtableProvider() {
         const fetchProjects = async () => {
             const call = await fetch(makeReadQuery('Projects'))
 
-
-
-
             const data = await call.json()
             let fields = data.records.map(r => r.fields)
             setProjects(mapToDto(fields, Project))
         }
-
 
         const getTeammates = async () => {
             const call = await fetch(makeReadQuery('Teammates'))
@@ -80,23 +69,16 @@ function useAirtableProvider() {
             const fetchTeammates = async () => {
                 const call = await fetch(makeReadQuery('Teammates'))
 
-
-
-
                 const data = await call.json()
                 let fields = data.records.map(r => r.fields)
                 setTeammates(mapToDto(fields, Teammate))
             }
-
 
             const getAbout = async () => {
                 const call = await fetch(makeReadQuery('About'))
 
                 const fetchAbout = async () => {
                     const call = await fetch(makeReadQuery('About'))
-
-
-
 
                     const data = await call.json()
                     let fields = data.records.map(r => r.fields)
@@ -110,13 +92,9 @@ function useAirtableProvider() {
                     setTechnologies(technologies)
                 }
 
-
                 const getSoftSkills = async () => {
 
                     const fetchSoftSkills = async () => {
-
-
-
 
                         const data = await getTable('SoftSkills')
                         let fields = data.records.map(r => r.fields)

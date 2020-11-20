@@ -42,10 +42,15 @@ export const deleteTask = async (task: Task) => {
     return task.id
 }
 
-// export const updateTask = async (task: Task) => {
-//     console.log('update task :>>', task)
-//     if (!task.id)
-//         return }
+export const updateTask = async (task: Task) => {
+
+    if (!task.id)
+        return
+
+    tasksRef.doc(task.id)
+        .update({ done: !task.done })
+        .catch(console.error)
+}
 
 export const createTask = async (task: Task) => {
 
