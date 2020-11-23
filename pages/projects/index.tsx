@@ -4,7 +4,7 @@ import { Stack, Heading, Spinner, Button, Box } from '@chakra-ui/core'
 import Link from 'next/link'
 import { Project } from '../../models'
 import { FC } from 'react'
-import { EntryList } from 'components/molecules'
+import { EntryList } from '../../components/molecules'
 
 export const Projects = () => {
     let { projects } = useAirtable()

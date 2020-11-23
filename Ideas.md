@@ -19,3 +19,7 @@
 - [ ] Update, Create and Delete
 - [ ] useTasks hook states 
 - [ ] % Progress bars
+
+# MMI
+- [ ] Move the Task Editor to top of app
+- [ ] Figure out Local task states vs live

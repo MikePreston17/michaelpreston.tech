@@ -46,119 +46,71 @@ function useAirtableProvider() {
     const getProjects = async () => {
         const call = await fetch(makeReadQuery('Projects'))
 
-        const [projects, setProjects] = useState([])
-        const [teammates, setTeammates] = useState([])
-        const [about, setAbout] = useState([])
-        const [technologies, setTechnologies] = useState([])
-        const [softSkills, setSoftSkills] = useState([])
+        const data = await call.json()
+        let fields = data.records.map(r => r.fields)
+        setProjects(mapToDto(fields, Project))
+    }
 
-        if (!apiKey || !baseId)
+    const getTeammates = async () => {
+        const call = await fetch(makeReadQuery('Teammates'))
+
+        const data = await call.json()
+        let fields = data.records.map(r => r.fields)
+        setTeammates(mapToDto(fields, Teammate))
+    }
+
+    const getAbout = async () => {
+        const call = await fetch(makeReadQuery('About'))
+
+        const data = await call.json()
+        let fields = data.records.map(r => r.fields)
+        setAbout(mapToDto(fields, About))
+    }
+
+    const getSoftSkills = async () => {
+
+        const data = await getTable('SoftSkills')
+        let fields = data.records.map(r => r.fields)
+        let softSkills = mapToDto(fields, SoftSkill)
+        setSoftSkills(softSkills)
+    }
+
+
+    const getTechnologies = async () => {
+
+        const data = await getTable('Technologies')
+        let fields = data.records.map(r => r.fields)
+        let softSkills = mapToDto(fields, SoftSkill)
+        setSoftSkills(softSkills)
+    }
+
+
+    // Initialize here
+    useEffect(() => {
+        if (!apiKey || !baseId) {
             console.warn('Invalid api keys, could not fetch any Airtable data')
-
-        const fetchProjects = async () => {
-            const call = await fetch(makeReadQuery('Projects'))
-
-            const data = await call.json()
-            let fields = data.records.map(r => r.fields)
-            setProjects(mapToDto(fields, Project))
+            return
         }
+        getProjects()
+            .catch(console.info)
+        getTeammates()
+            .catch(console.info)
+        getAbout()
+            .catch(console.info)
+        getTechnologies()
+            .catch(console.info)
+        getSoftSkills()
+            .catch(console.info)
+    }, [])
 
-        const getTeammates = async () => {
-            const call = await fetch(makeReadQuery('Teammates'))
+    // Pass back any results you want
+    return {
+        projects,
+        teammates,
+        about,
+        technologies,
+        softSkills,
 
-            const fetchTeammates = async () => {
-                const call = await fetch(makeReadQuery('Teammates'))
-
-                const data = await call.json()
-                let fields = data.records.map(r => r.fields)
-                setTeammates(mapToDto(fields, Teammate))
-            }
-
-            const getAbout = async () => {
-                const call = await fetch(makeReadQuery('About'))
-
-                const fetchAbout = async () => {
-                    const call = await fetch(makeReadQuery('About'))
-
-                    const data = await call.json()
-                    let fields = data.records.map(r => r.fields)
-                    setAbout(mapToDto(fields, About))
-                }
-
-                const getTechnologies = async () => {
-                    const data = await getTable('Technologies')
-                    let fields = data.records.map(r => r.fields)
-                    let technologies = mapToDto(fields, Technology)
-                    setTechnologies(technologies)
-                }
-
-                const getSoftSkills = async () => {
-
-                    const fetchSoftSkills = async () => {
-
-                        const data = await getTable('SoftSkills')
-                        let fields = data.records.map(r => r.fields)
-                        let softSkills = mapToDto(fields, SoftSkill)
-                        setSoftSkills(softSkills)
-                    }
-
-                    // const createTask = async () => {
-                    //     let base = new Airtable({ apiKey: apiKey }).base(process.env.AIRTABLE_TASKS_BASE)
-
-                    //     base('Todos').create([
-                    //         {
-                    //             'fields': {
-                    //                 'Title': 'Eat a pizza',
-                    //                 'Status': 'Todo'
-                    //             }
-                    //         },
-                    //         {
-                    //             'fields': {
-                    //                 'Title': 'Make Todo App',
-                    //                 'Status': 'In progress'
-                    //             }
-                    //         }
-                    //     ], function (err, records) {
-                    //         if (err) {
-                    //             console.error(err)
-                    //             return
-                    //         }
-                    //         records.forEach(function (record) {
-                    //             console.log(record.getId())
-                    //         })
-                    //     })
-                    // }
-
-                    // Initialize here
-                    useEffect(() => {
-                        if (!apiKey || !baseId) {
-                            console.warn('Invalid api keys, could not fetch any Airtable data')
-                            return
-                        }
-                        getProjects()
-                            .catch(console.info)
-                        getTeammates()
-                            .catch(console.info)
-                        getAbout()
-                            .catch(console.info)
-                        getTechnologies()
-                            .catch(console.info)
-                        getSoftSkills()
-                            .catch(console.info)
-                    }, [])
-
-                    // Pass back any results you want
-                    return {
-                        projects,
-                        teammates,
-                        about,
-                        technologies,
-                        softSkills,
-
-                        getTechnologies,
-                    }
-                }
-            }
-        }
+        getTechnologies,
     }
 }

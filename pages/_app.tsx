@@ -2,7 +2,7 @@ import React from 'react'
 import { ProvideProjects } from '../hooks'
 import { ThemeProvider, CSSReset, theme } from '@chakra-ui/core'
 import customTheme from '../themes'
-import { ProvideTasks } from '../hooks/useTasks'
+// import { ProvideTasks } from '../hooks/useTasks'
 
 const CustomApp = (props) => {
 
@@ -11,9 +11,9 @@ const CustomApp = (props) => {
     return (
         <ThemeProvider theme={customTheme}>
             <ProvideProjects>
-                <ProvideTasks>
-                    <Component {...pageProps} />
-                </ProvideTasks>
+                {/* <ProvideTasks> */}
+                <Component {...pageProps} />
+                {/* </ProvideTasks> */}
             </ProvideProjects>
         </ThemeProvider>
     )

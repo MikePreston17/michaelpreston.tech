@@ -26,7 +26,7 @@ export const tasksRef = db.firestore().collection('tasks')
 export const toggleDone = (task: Task) => {
 
     tasksRef.doc(task.id)
-        .update({ done: !task.done })
+        .update({ done: !task.done, updated_at: Date.now() })
         .catch(console.error)
 }
 
@@ -35,11 +35,11 @@ export const deleteTask = async (task: Task) => {
     if (!task.id)
         return
 
-    tasksRef.doc(task.id)
+    let result = await tasksRef.doc(task.id)
         .delete()
         .catch(console.error)
 
-    return task.id
+    return result
 }
 
 export const updateTask = async (task: Task) => {
@@ -48,7 +48,7 @@ export const updateTask = async (task: Task) => {
         return
 
     tasksRef.doc(task.id)
-        .update({ done: !task.done })
+        .update({ ...task, updated_at: Date.now() })
         .catch(console.error)
 }
 
@@ -58,12 +58,10 @@ export const createTask = async (task: Task) => {
         ...task,
         done: false,
         status: null,
-        due: null,
-        created: Date.now()
+        due_at: null,
+        created_at: Date.now()
     })
         .catch(console.error)
-
-    console.log('record', record)
 
     return record
 }

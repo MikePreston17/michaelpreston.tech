@@ -39,7 +39,7 @@
   ],
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
+    "**/*.ts", "hooks/useTasks.js", "hooks/useTasks.tsx",
     // "**/*.tsx", "pages/tasks/TasksViewer.js",
   ]
 }

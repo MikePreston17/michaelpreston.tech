@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import db from '../../../services/firebase'
 import Button from '@chakra-ui/core/dist/Button'
+import { Accordion, AccordionIcon, AccordionItem, AccordionPanel, Box, FormControl, FormLabel, Textarea, AccordionButton, AccordionHeader } from '@chakra-ui/core'
 
-const CreateTask = () => {
+const TaskEditor = () => {
 
-    const [form, updateForm] = useState({ title: '', notes: '', isEnabled: true })
+    const [form, updateForm] = useState({
+        title: '',
+        notes: '',
+        isEnabled: false
+    })
 
     /**
      * Updates the appropriate state prop by its field name from the 
@@ -37,7 +42,7 @@ const CreateTask = () => {
     }
 
     return (
-        <div>
+        <Box flexWrap='wrap'>
             <Button
                 size="xs"
                 style={{
@@ -48,11 +53,33 @@ const CreateTask = () => {
                 }}
                 onClick={toggleForm}>{!form.isEnabled ? '+' : '-'}</Button>
 
+            {/* <Accordion allowMultiple>
+
+                <AccordionItem >
+                    <AccordionHeader
+                        _expanded={{ bg: '#bada55', color: 'transparent' }}
+                    >
+                        <Box
+                            // backgroundColor="upstack.teal"
+                            flex="1"
+                            textAlign="left"
+                        >
+                            lorem ipsum
+                        </Box>
+                    </AccordionHeader>
+                    <AccordionPanel pb={4}>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit optio mollitia enim, sint repellendus voluptatibus corporis odio illum cupiditate possimus iste temporibus accusantium quod. Quae sint odit unde expedita laudantium!</div>
+                    </AccordionPanel>
+
+                </AccordionItem>
+
+            </Accordion> */}
+
             {
                 form.isEnabled &&
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        Title<br />
+                    <FormControl>
+                        <FormLabel>Title</FormLabel>
                         <input type="text"
                             style={{
                                 background: 'transparent',
@@ -62,10 +89,11 @@ const CreateTask = () => {
                             value={form.title}
                             name="title"
                             onChange={updateField} />
-                    </div>
-                    <div>
-                        Notes<br />
-                        <textarea value={form.notes}
+                    </FormControl>
+
+                    <FormControl>
+                        <FormLabel>Notes</FormLabel>
+                        <Textarea value={form.notes}
                             name='notes'
                             onChange={updateField}
                             style={{
@@ -74,16 +102,18 @@ const CreateTask = () => {
                                 border: '.125rem solid #a14afe',
                             }}
                         />
-                    </div>
-                    <Button
-                        style={{
-                            background: 'transparent',
-                            color: '#f4f6f8',
-                            border: '.125rem solid #f20c4a',
-                        }}
-                        type="submit">Save</Button>
-                </form>}
-        </div>
+
+                        <Button
+                            style={{
+                                background: 'transparent',
+                                color: '#f4f6f8',
+                                border: '.125rem solid #f20c4a',
+                            }}
+                            type="submit">Save</Button>
+                    </FormControl>
+                </form>
+            }
+        </Box>
     )
 }
-export default CreateTask
+export default TaskEditor
