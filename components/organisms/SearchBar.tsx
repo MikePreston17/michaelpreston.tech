@@ -20,6 +20,7 @@ type Props = {
     children: (props: any) => ReactElement, // Results are rendered by children, expressed as a function.
     placeholder?: string,
     queryFn?: (searchTerm, take) => string, // A function that returns a full URL.
+    enabled?: boolean
 }
 
 const config = {
@@ -33,8 +34,8 @@ export const SearchBar: FC<Props> = ({
     label = "Search",
     children = _ => { },
     placeholder = "...",
-    // queryFn = (q = 'wsl 2', _) => `https://duckduckgo.com/?q=${q}&ia=web`
-    queryFn = (searchTerm, take) => `https://www.thepathoftruth.com/wp-json/wp/v2/pages?per_page=${take}&search="${searchTerm}"`
+    queryFn,
+    enabled = true,
 }) => {
 
     // isDev() && console.log("children :>> ", children)
@@ -54,13 +55,11 @@ export const SearchBar: FC<Props> = ({
 
         if (debouncedSearchTerm) {
             setLoading(true);
-            // let query = `pages?per_page=${take}&search="${debouncedSearchTerm}"`
-            // let url = `https://www.thepathoftruth.com/wp-json/wp/v2/${query}`
-            let url = queryFn(debouncedSearchTerm, take)
+            let url = !!queryFn ? queryFn(debouncedSearchTerm, take) : null;
 
             setUrl(url)
 
-            axios
+            !!url && enabled && axios
                 .get(url, config)
                 .then((response) => {
                     isDev() && console.log('response.data', response.data)
@@ -93,7 +92,7 @@ export const SearchBar: FC<Props> = ({
             return;
 
         setLoading(true)
-        axios
+        !!url && enabled && axios
             .get(url, config)
             .then((response) => {
                 setResults(response.data)
