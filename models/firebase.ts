@@ -1,3 +1,5 @@
+import isDev from "helpers/environment";
+
 export class Task {
     id: string;
     title: string;
@@ -15,7 +17,7 @@ export class Task {
     }
 
     static Create(props = null) {
-        console.log('props :>>', props)
+        isDev() && console.log('props :>>', props)
         return {
             ...props,
             title: props?.title || "",

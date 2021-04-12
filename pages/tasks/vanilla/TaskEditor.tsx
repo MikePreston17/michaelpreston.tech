@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import db from '../../../services/firebase'
 import Button from '@chakra-ui/core/dist/Button'
-import { Accordion, AccordionIcon, AccordionItem, AccordionPanel, Box, FormControl, FormLabel, Textarea, AccordionButton, AccordionHeader } from '@chakra-ui/core'
+import { Accordion, AccordionIcon, AccordionItem, AccordionPanel, Box, FormControl, FormLabel, Textarea, AccordionButton, AccordionHeader, Tooltip } from '@chakra-ui/core'
 
 const TaskEditor = () => {
 
@@ -42,37 +42,40 @@ const TaskEditor = () => {
     }
 
     return (
-        <Box flexWrap='wrap'>
-            <Button
-                size="xs"
-                style={{
-                    background: 'transparent',
-                    color: '#afe',
-                    borderRadius: '50px',
-                    border: '.125rem solid #afe',
-                }}
-                onClick={toggleForm}>{!form.isEnabled ? '+' : '-'}</Button>
+        <Box flexWrap='wrap' className='task-editor'>
+            <Tooltip aria-label="task-add-button" label={!form.isEnabled ? 'Add New Task' : 'Hide'}>
+
+                <Button
+                    size="xs"
+                    style={{
+                        background: 'transparent',
+                        color: '#afe',
+                        borderRadius: '50px',
+                        border: '.125rem solid #afe',
+                    }}
+                    onClick={toggleForm}>{!form.isEnabled ? '+' : '-'}</Button>
+            </Tooltip>
 
             {/* <Accordion allowMultiple>
 
-                <AccordionItem >
-                    <AccordionHeader
+<AccordionItem >
+<AccordionHeader
                         _expanded={{ bg: '#bada55', color: 'transparent' }}
-                    >
-                        <Box
-                            // backgroundColor="upstack.teal"
-                            flex="1"
-                            textAlign="left"
                         >
-                            lorem ipsum
+                        <Box
+                        // backgroundColor="upstack.teal"
+                        flex="1"
+                        textAlign="left"
+                        >
+                        lorem ipsum
                         </Box>
-                    </AccordionHeader>
-                    <AccordionPanel pb={4}>
+                        </AccordionHeader>
+                        <AccordionPanel pb={4}>
                         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit optio mollitia enim, sint repellendus voluptatibus corporis odio illum cupiditate possimus iste temporibus accusantium quod. Quae sint odit unde expedita laudantium!</div>
-                    </AccordionPanel>
-
-                </AccordionItem>
-
+                        </AccordionPanel>
+                        
+                        </AccordionItem>
+                        
             </Accordion> */}
 
             {

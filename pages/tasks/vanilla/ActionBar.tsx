@@ -16,7 +16,7 @@ export const iconStyle = {
 
 export function ActionBar({ task, deleteTask, toggleDone }) {
 
-return (<Flex direction="row">
+return (<Flex direction="row" alignItems='center'>
 
         {!task?.done && <Tooltip aria-label='mark-complete' label="Mark Complete">
             <Button size="sm" {...iconStyle} onClick={() => toggleDone(task)}>

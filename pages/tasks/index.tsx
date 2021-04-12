@@ -8,7 +8,8 @@ import Box from '@chakra-ui/core/dist/Box'
 import Stack from '@chakra-ui/core/dist/Stack'
 import FormControl from '@chakra-ui/core/dist/FormControl'
 import { useFirestoreQuery } from '../../hooks'
-import { Button } from '@chakra-ui/core'
+import { Button, Tooltip } from '@chakra-ui/core'
+import { SearchBar } from '../../components/organisms'
 
 const TasksView = () => {
 
@@ -24,12 +25,8 @@ const TasksView = () => {
         return `Error: ${error.message}`
     }
 
-    console.log('data :>> ', tasks)
-
     const toggleCompleteTask = (task: Task) => {
-
         toggleTaskDone(task)
-
     }
 
     const remove = (task: Task) => {
@@ -40,22 +37,20 @@ const TasksView = () => {
 
     return (
         <Box>
-            <FormControl display="flex" alignItems="center">
-
-                <Button onClick={() => {
-                    const fakeRecords = createFakeTasks()
-                    fakeRecords.forEach(task => {
-                        createTask(task)
-                    })
-
-                }}>Create fake tasks</Button>
-            </FormControl>
-
-            <TaskStats
+            <SearchBar
+            // queryFn={() => "http://www.google.com"}
+            >{() => <TaskStats
                 toggleDone={toggleCompleteTask}
                 deleteTask={remove}
                 tasks={tasks}
-                />
+            />}</SearchBar>
+
+
+            {/* <TaskStats
+                toggleDone={toggleCompleteTask}
+                deleteTask={remove}
+                tasks={tasks}
+            /> */}
         </Box>
     )
 }
@@ -64,6 +59,8 @@ const TasksView = () => {
     Enable real data?
 </FormLabel>
 <Switch id="real-data" color="teal" onChange={toggleDevMode} /> */}
+
+
 
 const TaskStats = ({ tasks, toggleDone, deleteTask }) => {
 
@@ -76,10 +73,13 @@ const TaskStats = ({ tasks, toggleDone, deleteTask }) => {
             <div className={styles['todo-list']}>
                 <div className={styles.header}>Pending tasks ({tasksRemaining})</div>
                 <div className={styles.header}>{`${percentDone}% complete`}</div>
-                <div className="task-editor">
+
+                <Stack direction='row'>
+                    <FakeTasksButton />
                     <TaskEditor />
-                </div>
+                </Stack>
                 <Stack>
+
                     {tasks
                         .sort((a, b) => a.done - b.done)
                         .map((task, index) => (
@@ -96,15 +96,39 @@ const TaskStats = ({ tasks, toggleDone, deleteTask }) => {
     )
 }
 
+const FakeTasksButton = () => <FormControl
+    display="flex"
+    alignItems="center"
+>
+    <Tooltip
+        aria-label='fake-button'
+        label='Fake Some Data'
+    >
+        <Button
+            size="xs"
+            style={{
+                background: 'transparent',
+                color: '#afe',
+                borderRadius: '50px',
+                border: '.125rem solid #afe',
+            }}
+            onClick={() => {
+                const fakeRecords = createFakeTasks()
+                fakeRecords.forEach(task => {
+                    createTask(task)
+                })
+
+            }}>[?]</Button>
+    </Tooltip>
+</FormControl>
+
 function createFakeTasks(limit = 5) {
     let nums = [...Array(limit)].map(() => Math.floor(Math.random() * limit))
     let list = Array.from([...new Set(nums)], (x) => { return { title: `Task ${x}`, done: !!(x % 0) } })
     return list
 }
 
-
 export default TasksView
-
 
     // setTasks(data)
 
@@ -138,7 +162,7 @@ export default TasksView
 
 
 
-    
+
         // Local updates:
         // let index = tasks.indexOf(task)
         // let updatedTasks = Object.assign([...tasks], { [index]: { ...task, done: !task.done } })

@@ -30,7 +30,7 @@
       ],
       "organisms": [
         "components/organisms"
-      ]
+      ],
     }
   },
   "exclude": [
@@ -39,7 +39,9 @@
   ],
   "include": [
     "next-env.d.ts",
-    "**/*.ts", "hooks/useTasks.js", "hooks/useTasks.tsx",
+    "**/*.ts",
+    "hooks/useTasks.js",
+    "hooks/useTasks.tsx",
     // "**/*.tsx", "pages/tasks/TasksViewer.js",
   ]
 }
