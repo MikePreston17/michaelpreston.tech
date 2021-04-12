@@ -9,6 +9,15 @@ const CustomApp = (props) => {
     let { Component, pageProps } = props
 
     return (
+        <div
+        className='Im just a div, just a regular div'
+// style={{
+//     background:'yellow'
+//     ,border:'2px solid red'
+// }}
+        >
+
+
         <ThemeProvider theme={customTheme}>
             <ProvideProjects>
                 {/* <ProvideTasks> */}
@@ -16,6 +25,7 @@ const CustomApp = (props) => {
                 {/* </ProvideTasks> */}
             </ProvideProjects>
         </ThemeProvider>
+        </div>
     )
 }
 

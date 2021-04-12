@@ -1,4 +1,4 @@
-import { Card } from './CardTemplates'
+import { Card } from './SlottedCard'
 import { Technology, SoftSkill } from '../../models';
 import { FC } from 'react';
 import { Image, Flex, Text, Box, Stack, Badge, Heading, Icon } from '@chakra-ui/core';

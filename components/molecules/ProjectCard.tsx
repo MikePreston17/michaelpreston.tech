@@ -1,7 +1,7 @@
 import { Box, Badge, Image, Link, Heading, Flex, Button, Icon, Tooltip } from "@chakra-ui/core";
 import { FC } from 'react';
 import { Project } from "../../models";
-import Card from "./CardTemplates";
+import Card from "../molecules/SlottedCard";
 import { GrCirclePlay } from "react-icons/gr";
 
 type Props = {

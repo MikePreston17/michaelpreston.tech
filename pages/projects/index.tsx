@@ -1,13 +1,10 @@
-import { Routes } from '../../constants/routes'
 import { useAirtable } from '../../hooks/useAirtable'
-import { Stack, Heading, Spinner, Button, Box } from '@chakra-ui/core'
-import Link from 'next/link'
-import { Project } from '../../models'
-import { FC } from 'react'
-import { EntryList } from '../../components/molecules'
+import { Stack, Spinner, List, Heading } from '@chakra-ui/core'
+import React from 'react'
+import Card from '../../components/molecules/SlottedCard'
 
 export const Projects = () => {
-    let { projects } = useAirtable()
+    let { projects } = useAirtable() || []
 
     // let myProjects = projects.length === 0
     //     ? sampleProjects
@@ -21,7 +18,16 @@ export const Projects = () => {
         >
             {!projects
                 ? <Spinner color="upstack.teal.500" />
-                : <EntryList entries={projects} />}
+                : <List>
+                    {projects.map((project, index) => {
+                        return <Card>
+                            {{
+                                header: <Heading>{project.Name}</Heading>,
+                                content: <p>{project?.Description || "(N/A)"}</p>
+                            }}
+                        </Card>
+                    })}
+                </List>}
 
         </Stack>
     )

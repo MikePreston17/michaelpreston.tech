@@ -2,7 +2,6 @@
 import { Heading, Text, Button, List, Image, ListItem, Icon, Box, Stack, Badge, Flex, SimpleGrid } from '@chakra-ui/core'
 import Link from 'next/link'
 import { useAirtable } from '../../hooks/useAirtable'
-import { EntryList, Card } from '../../components'
 import { Technology } from '../../models/Airtable'
 import { SkillCard } from '../../components/molecules'
 import { FC } from 'react'

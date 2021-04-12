@@ -15,17 +15,16 @@ export const iconStyle = {
 }
 
 export function ActionBar({ task, deleteTask, toggleDone }) {
-    console.log('toggleDone :>> ', toggleDone)
-    return (<Flex direction="row">
 
+return (<Flex direction="row">
 
-        {!task.done && <Tooltip aria-label='mark-complete' label="Mark Complete">
+        {!task?.done && <Tooltip aria-label='mark-complete' label="Mark Complete">
             <Button size="sm" {...iconStyle} onClick={() => toggleDone(task)}>
                 <RiCheckFill size={iconStyle.iconSize} />
             </Button>
         </Tooltip>}
 
-        {!!task.done && <Tooltip aria-label='mark-incomplete' label='Mark Incomplete'>
+        {!!task?.done && <Tooltip aria-label='mark-incomplete' label='Mark Incomplete'>
             <Button size='sm' {...iconStyle} onClick={() => toggleDone(task)}>
                 <RiCloseFill size={iconStyle.iconSize} />
             </Button>
@@ -39,3 +38,5 @@ export function ActionBar({ task, deleteTask, toggleDone }) {
 
     </Flex>)
 }
+
+export default ActionBar

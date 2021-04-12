@@ -6,20 +6,12 @@ import { useHover } from '../../../hooks'
 import Input from '@chakra-ui/core/dist/Input'
 import { ActionBar } from './ActionBar'
 import Stack from '@chakra-ui/core/dist/Stack'
+import { Task } from '../../../models'
 
 export const TaskCard = ({ task, toggleDone, deleteTask }) => {
 
     const [hoverRef, isHovering] = useHover()
-
-    const [form, updateForm] = useState({
-        title: task?.title || null,
-        notes: task?.notes || null,
-    })
-
-    const createdAt = new Date(task.createdAt || task.create)
-
-
-    //!!(task?.created_at || task?.created) ? (task?.created_at || task?.created).toTimeString() : 'n/a'
+    const [form, updateForm] = useState(Task.Create())
 
     /**
      * Updates the appropriate state prop by its field name from the
@@ -40,7 +32,7 @@ export const TaskCard = ({ task, toggleDone, deleteTask }) => {
         >
             <Card>{{
                 header: <Heading
-                    style={{ textDecoration: task.done ? 'line-through' : '' }}
+                    style={{ textDecoration: task?.done ? 'line-through' : '' }}
                     size="lg">
 
                     <div style={{ flexGrow: 2 }}>
@@ -52,9 +44,9 @@ export const TaskCard = ({ task, toggleDone, deleteTask }) => {
                                 color: 'white',
                                 width: '90%',
                                 padding: 10,
-                                textDecoration: task.done ? 'line-through' : 'none',
+                                textDecoration: task?.done ? 'line-through' : 'none',
                             }}
-                            value={task.title}
+                            value={task?.title}
                             onChange={updateField}
                             name='title' />
                     </div>
@@ -82,3 +74,5 @@ export const TaskCard = ({ task, toggleDone, deleteTask }) => {
         </Box>
     )
 }
+
+export default TaskCard

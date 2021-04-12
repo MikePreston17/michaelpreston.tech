@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { observer } from 'mobx-react'
 // import { Task } from '../../../models'
-import { Card } from '../../../components/molecules/CardTemplates'
+import { Card } from '../../../components/molecules/SlottedCard'
 // import { Task } from '../TaskStore';
 
 interface PropsType {

@@ -10,13 +10,7 @@ import FormControl from '@chakra-ui/core/dist/FormControl'
 import { useFirestoreQuery } from '../../hooks'
 import { Button } from '@chakra-ui/core'
 
-const initialState = {
-    isDev: true
-}
-
 const TasksView = () => {
-
-    // const [tasks, setTasks] = useState([])
 
     const { data: tasks, status, error } = useFirestoreQuery(
         tasksRef
@@ -31,44 +25,11 @@ const TasksView = () => {
     }
 
     console.log('data :>> ', tasks)
-    // setTasks(data)
-
-    // useEffect(() => {
-
-    //     if (state.isDev) {
-    //         let list = JSON.parse(sessionStorage.getItem('tasks')) || createFakeTasks(50)
-    //         setTasks(list)
-    //         sessionStorage.setItem('tasks', JSON.stringify(list))
-    //     }
-    //     else {
-
-    //         // const { error, taskList, loading } = useTasks()
-    //         // setTasks(taskList)
-
-
-    //         // const { error, task, loading } = useTask('12345')
-    //         // console.log('task :>> ', task)
-
-    //         // tasksRef
-    //         //     .onSnapshot(snapshot => {
-    //         //         const list = snapshot.docs.map(doc => ({
-    //         //             id: doc.id,
-    //         //             ...doc.data()
-    //         //         }))
-    //         //         console.count('loaded')
-    //         //         setTasks(list)
-    //         //     })
-    //     }
-    // }, [state.isDev])
 
     const toggleCompleteTask = (task: Task) => {
 
         toggleTaskDone(task)
 
-        // Local updates:
-        // let index = tasks.indexOf(task)
-        // let updatedTasks = Object.assign([...tasks], { [index]: { ...task, done: !task.done } })
-        // setTasks(updatedTasks)
     }
 
     const remove = (task: Task) => {
@@ -78,12 +39,8 @@ const TasksView = () => {
 
 
     return (
-        <div>
+        <Box>
             <FormControl display="flex" alignItems="center">
-                {/* <FormLabel htmlFor="real-data" mb="0">
-                    Enable real data?
-                </FormLabel>
-                <Switch id="real-data" color="teal" onChange={toggleDevMode} /> */}
 
                 <Button onClick={() => {
                     const fakeRecords = createFakeTasks()
@@ -98,10 +55,15 @@ const TasksView = () => {
                 toggleDone={toggleCompleteTask}
                 deleteTask={remove}
                 tasks={tasks}
-            />
-        </div>
+                />
+        </Box>
     )
 }
+
+{/* <FormLabel htmlFor="real-data" mb="0">
+    Enable real data?
+</FormLabel>
+<Switch id="real-data" color="teal" onChange={toggleDevMode} /> */}
 
 const TaskStats = ({ tasks, toggleDone, deleteTask }) => {
 
@@ -142,3 +104,42 @@ function createFakeTasks(limit = 5) {
 
 
 export default TasksView
+
+
+    // setTasks(data)
+
+    // useEffect(() => {
+
+    //     if (state.isDev) {
+    //         let list = JSON.parse(sessionStorage.getItem('tasks')) || createFakeTasks(50)
+    //         setTasks(list)
+    //         sessionStorage.setItem('tasks', JSON.stringify(list))
+    //     }
+    //     else {
+
+    //         // const { error, taskList, loading } = useTasks()
+    //         // setTasks(taskList)
+
+
+    //         // const { error, task, loading } = useTask('12345')
+    //         // console.log('task :>> ', task)
+
+    //         // tasksRef
+    //         //     .onSnapshot(snapshot => {
+    //         //         const list = snapshot.docs.map(doc => ({
+    //         //             id: doc.id,
+    //         //             ...doc.data()
+    //         //         }))
+    //         //         console.count('loaded')
+    //         //         setTasks(list)
+    //         //     })
+    //     }
+    // }, [state.isDev])
+
+
+
+    
+        // Local updates:
+        // let index = tasks.indexOf(task)
+        // let updatedTasks = Object.assign([...tasks], { [index]: { ...task, done: !task.done } })
+        // setTasks(updatedTasks)
