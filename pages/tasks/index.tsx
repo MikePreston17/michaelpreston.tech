@@ -39,7 +39,7 @@ const TasksView = () => {
         <Box>
             <SearchBar
                 enabled={false}
-                // queryFn={() => "http://www.google.com"}
+                hidden={true}
                 // queryFn = (q = 'wsl 2', _) => `https://duckduckgo.com/?q=${q}&ia=web`
                 queryFn={(searchTerm, take) => `https://www.thepathoftruth.com/wp-json/wp/v2/pages?per_page=${take}&search="${searchTerm}"`}
             >{() => <TaskStats

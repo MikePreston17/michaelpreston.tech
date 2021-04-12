@@ -20,7 +20,8 @@ type Props = {
     children: (props: any) => ReactElement, // Results are rendered by children, expressed as a function.
     placeholder?: string,
     queryFn?: (searchTerm, take) => string, // A function that returns a full URL.
-    enabled?: boolean
+    enabled?: boolean,
+    hidden?: boolean,
 }
 
 const config = {
@@ -36,6 +37,7 @@ export const SearchBar: FC<Props> = ({
     placeholder = "...",
     queryFn,
     enabled = true,
+    hidden = false,
 }) => {
 
     // isDev() && console.log("children :>> ", children)
@@ -105,17 +107,16 @@ export const SearchBar: FC<Props> = ({
             <Stack
                 width="100%"
                 align="center"
-                p={2}
+                // p={2}
             >
-                <Box textAlign="center">
-                    <Heading size="lg">Search</Heading>
-                </Box>
                 <Stack
-                    my={4}
+                    // my={4}
                     textAlign="left"
                     direction='column'
                 >
-                    <form onSubmit={onSubmit}>
+                    <form
+                        hidden={hidden}
+                        onSubmit={onSubmit}>
                         <a href={url}>{url}</a>
                         <FormControl>
                             <FormLabel>{label}</FormLabel>
